@@ -1053,7 +1053,8 @@ const studied = document.getElementById("plannerStudied").value.trim();
       {
         user_id: user.id,
         planner_date: today,
-        tasks: tasks
+        tasks: tasks,
+        studied: studied
       },
       {
         onConflict: "user_id,planner_date"
