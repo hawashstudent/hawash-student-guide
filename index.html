@@ -705,6 +705,7 @@ header p {
   ></textarea>
 
   <h3 style="margin-top:20px;">شو درست اليوم؟</h3>
+<h3 style="margin-top:20px;">شو درست اليوم؟</h3>
 
   <textarea
     id="plannerStudied"
@@ -713,7 +714,17 @@ header p {
     style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
   ></textarea>
 
+  <h3 style="margin-top:20px;">إنجازاتي اليوم</h3>
+
+  <textarea
+    id="plannerAchievements"
+    placeholder="اكتب شو أنجزت اليوم..."
+    rows="4"
+    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+  ></textarea>
+
   <button
+    
     type="button"
     onclick="savePlannerDay()"
     style="margin-top:12px; width:100%;"
@@ -1037,6 +1048,7 @@ document.getElementById("plannerStudied").value = data.studied || "";
   async function savePlannerDay() {
   const tasks = document.getElementById("plannerTasks").value.trim();
 const studied = document.getElementById("plannerStudied").value.trim();
+const achievements = document.getElementById("plannerAchievements").value.trim();
   const {
     data: { user }
   } = await supabaseClient.auth.getUser();
@@ -1055,7 +1067,8 @@ const studied = document.getElementById("plannerStudied").value.trim();
         user_id: user.id,
         planner_date: today,
         tasks: tasks,
-        studied: studied
+        studied: studied,
+achievements: achievements
       },
       {
         onConflict: "user_id,planner_date"
