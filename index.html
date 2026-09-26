@@ -756,80 +756,83 @@ header p {
 </div>
 
   </div>
-    <div class="content-card" style="margin-top:20px;">
-  <h3>الأسبوع الحالي</h3>
-  <p id="plannerWeekDates"></p>
-</div>
+    <div id="plannerWeekSection" style="display:none;">
 
-<div class="content-card">
-  <h3>إنجازات الأسبوع</h3>
-
-  <textarea
-    id="plannerWeeklyAchievements"
-    placeholder="اكتب أهم إنجازاتك هذا الأسبوع..."
-    rows="4"
-    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
-  ></textarea>
-
-  <h3 style="margin-top:20px;">أفضل إنجاز هذا الأسبوع</h3>
-
-  <textarea
-    id="plannerBestAchievement"
-    placeholder="ما هو أفضل شيء أنجزته؟"
-    rows="3"
-    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
-  ></textarea>
-
-  <h3 style="margin-top:20px;">شو بدي حسّن؟</h3>
-
-  <textarea
-    id="plannerImprove"
-    placeholder="اكتب الأشياء التي تريد تحسينها..."
-    rows="3"
-    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
-  ></textarea>
-
-  <h3 style="margin-top:20px;">هدفي للأسبوع القادم</h3>
-
-  <textarea
-    id="plannerNextGoal"
-    placeholder="اكتب هدفك للأسبوع القادم..."
-    rows="3"
-    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
-  ></textarea>
-
-  <h3 style="margin-top:20px;">تقييم الأسبوع</h3>
-
-  <select
-    id="plannerWeeklyRating"
-    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit;"
-  >
-    <option value="">اختر تقييمك للأسبوع</option>
-    <option value="1">⭐ 1 / 5</option>
-    <option value="2">⭐⭐ 2 / 5</option>
-    <option value="3">⭐⭐⭐ 3 / 5</option>
-    <option value="4">⭐⭐⭐⭐ 4 / 5</option>
-    <option value="5">⭐⭐⭐⭐⭐ 5 / 5</option>
-  </select>
-
-  <h3 style="margin-top:20px;">ملاحظات الأسبوع</h3>
-
-  <textarea
-    id="plannerWeeklyNotes"
-    placeholder="اكتب ملاحظاتك عن هذا الأسبوع..."
-    rows="4"
-    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
-  ></textarea>
-
-  <button
-    type="button"
-    onclick="savePlannerWeek()"
-    style="margin-top:12px; width:100%;"
-  >
-    حفظ الأسبوع
-  </button>
-</div>
+  <div class="content-card" style="margin-top:20px;">
+    <h3>الأسبوع الحالي</h3>
+    <p id="plannerWeekDates"></p>
   </div>
+
+  <div class="content-card">
+    <h3>إنجازات الأسبوع</h3>
+
+    <textarea
+      id="plannerWeeklyAchievements"
+      placeholder="اكتب أهم إنجازاتك هذا الأسبوع..."
+      rows="4"
+      style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+    ></textarea>
+
+    <h3 style="margin-top:20px;">أفضل إنجاز هذا الأسبوع</h3>
+
+    <textarea
+      id="plannerBestAchievement"
+      placeholder="ما هو أفضل شيء أنجزته؟"
+      rows="3"
+      style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+    ></textarea>
+
+    <h3 style="margin-top:20px;">شو بدي حسّن؟</h3>
+
+    <textarea
+      id="plannerImprove"
+      placeholder="اكتب الأشياء التي تريد تحسينها..."
+      rows="3"
+      style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+    ></textarea>
+
+    <h3 style="margin-top:20px;">هدفي للأسبوع القادم</h3>
+
+    <textarea
+      id="plannerNextGoal"
+      placeholder="اكتب هدفك للأسبوع القادم..."
+      rows="3"
+      style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+    ></textarea>
+
+    <h3 style="margin-top:20px;">تقييم الأسبوع</h3>
+
+    <select
+      id="plannerWeeklyRating"
+      style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit;"
+    >
+      <option value="">اختر تقييمك للأسبوع</option>
+      <option value="1">⭐ 1 / 5</option>
+      <option value="2">⭐⭐ 2 / 5</option>
+      <option value="3">⭐⭐⭐ 3 / 5</option>
+      <option value="4">⭐⭐⭐⭐ 4 / 5</option>
+      <option value="5">⭐⭐⭐⭐⭐ 5 / 5</option>
+    </select>
+
+    <h3 style="margin-top:20px;">ملاحظات الأسبوع</h3>
+
+    <textarea
+      id="plannerWeeklyNotes"
+      placeholder="اكتب ملاحظاتك عن هذا الأسبوع..."
+      rows="4"
+      style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+    ></textarea>
+
+    <button
+      type="button"
+      onclick="savePlannerWeek()"
+      style="margin-top:12px; width:100%;"
+    >
+      حفظ الأسبوع
+    </button>
+  </div>
+      
+</div>
 
       
       <!-- دليل الطالب -->
@@ -1093,20 +1096,68 @@ item => `
   loadPlannerDate();
   loadPlannerDay();
   loadPlannerWeekDates();
-  loadPlannerWeek();
-    }
+  updatePlannerWeekSection();
+
+  if (getPlannerDayNumber() >= 7) {
+    loadPlannerWeek();
+  }
+  }
 
   window.scrollTo(0, 0);
   }
 
   function getPlannerWeekStart() {
+  let weekStart = localStorage.getItem("hawash_planner_week_start");
+  const weekCompleted =
+    localStorage.getItem("hawash_planner_week_completed") === "true";
+
+  const today = new Date().toISOString().split("T")[0];
+
+  if (!weekStart || weekCompleted) {
+    weekStart = today;
+
+    localStorage.setItem(
+      "hawash_planner_week_start",
+      weekStart
+    );
+
+    localStorage.setItem(
+      "hawash_planner_week_completed",
+      "false"
+    );
+  }
+
+  return weekStart;
+  }
+
+  function getPlannerDayNumber() {
+  const weekStart = getPlannerWeekStart();
+
+  const start = new Date(weekStart + "T00:00:00");
   const today = new Date();
-  const day = today.getDay();
-  const diff = day === 0 ? -6 : 1 - day;
 
-  today.setDate(today.getDate() + diff);
+  start.setHours(0, 0, 0, 0);
+  today.setHours(0, 0, 0, 0);
 
-  return today.toISOString().split("T")[0];
+  const difference =
+    Math.floor((today - start) / 86400000);
+
+  return difference + 1;
+  }
+
+  function updatePlannerWeekSection() {
+  const section =
+    document.getElementById("plannerWeekSection");
+
+  if (!section) return;
+
+  const dayNumber = getPlannerDayNumber();
+
+  if (dayNumber >= 7) {
+    section.style.display = "block";
+  } else {
+    section.style.display = "none";
+  }
   }
   
 
@@ -1191,6 +1242,17 @@ const dailyNote = document.getElementById("plannerNote").value.trim();
     alert("يجب تسجيل الدخول أولاً.");
     return;
   }
+  if (!localStorage.getItem("hawash_planner_week_start")) {
+  localStorage.setItem(
+    "hawash_planner_week_start",
+    new Date().toISOString().split("T")[0]
+  );
+
+  localStorage.setItem(
+    "hawash_planner_week_completed",
+    "false"
+  );
+  }
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -1247,6 +1309,10 @@ async function savePlannerWeek() {
     alert("يجب تسجيل الدخول أولاً.");
     return;
   }
+  if (getPlannerDayNumber() < 7) {
+  alert("تقييم الأسبوع يصبح متاحاً بعد إكمال 7 أيام.");
+  return;
+  }
 
   const weekStart = getPlannerWeekStart();
 
@@ -1275,8 +1341,13 @@ async function savePlannerWeek() {
   }
 
   alert("تم حفظ الأسبوع بنجاح.");
-  }
 
+localStorage.setItem(
+  "hawash_planner_week_completed",
+  "true"
+);
+}
+  
   async function loadPlannerWeek() {
   const {
     data: { user }
