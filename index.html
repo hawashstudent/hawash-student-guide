@@ -723,6 +723,29 @@ header p {
     style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
   ></textarea>
 
+    <h3 style="margin-top:20px;">تقييم اليوم</h3>
+
+<select
+  id="plannerRating"
+  style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit;"
+>
+  <option value="">اختر تقييمك لليوم</option>
+  <option value="1">⭐ 1 / 5</option>
+  <option value="2">⭐⭐ 2 / 5</option>
+  <option value="3">⭐⭐⭐ 3 / 5</option>
+  <option value="4">⭐⭐⭐⭐ 4 / 5</option>
+  <option value="5">⭐⭐⭐⭐⭐ 5 / 5</option>
+</select>
+
+<h3 style="margin-top:20px;">ملاحظة اليوم</h3>
+
+<textarea
+  id="plannerNote"
+  placeholder="اكتب أي ملاحظة عن يومك..."
+  rows="4"
+  style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+></textarea>
+    
   <button
     
     type="button"
@@ -1028,7 +1051,7 @@ item => `
 
   const { data, error } = await supabaseClient
     .from("planner_days")
-    .select("tasks, studied, achievements")
+    .select("tasks, studied, achievements, daily_rating, daily_note")
     .eq("user_id", user.id)
     .eq("planner_date", today)
     .maybeSingle();
@@ -1042,6 +1065,8 @@ item => `
     document.getElementById("plannerTasks").value = data.tasks || "";
 document.getElementById("plannerStudied").value = data.studied || "";
 document.getElementById("plannerAchievements").value = data.achievements || "";
+document.getElementById("plannerRating").value = data.daily_rating || "";
+document.getElementById("plannerNote").value = data.daily_note || "";
   }
   }
   
@@ -1050,6 +1075,8 @@ document.getElementById("plannerAchievements").value = data.achievements || "";
   const tasks = document.getElementById("plannerTasks").value.trim();
 const studied = document.getElementById("plannerStudied").value.trim();
 const achievements = document.getElementById("plannerAchievements").value.trim();
+const dailyRating = document.getElementById("plannerRating").value;
+const dailyNote = document.getElementById("plannerNote").value.trim();
   const {
     data: { user }
   } = await supabaseClient.auth.getUser();
@@ -1069,7 +1096,9 @@ const achievements = document.getElementById("plannerAchievements").value.trim()
         planner_date: today,
         tasks: tasks,
         studied: studied,
-achievements: achievements
+        achievements: achievements,
+        daily_rating: dailyRating ? Number(dailyRating) : null,
+        daily_note: dailyNote
       },
       {
         onConflict: "user_id,planner_date"
