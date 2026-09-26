@@ -1108,12 +1108,27 @@ item => `
 
   function getPlannerWeekStart() {
   let weekStart = localStorage.getItem("hawash_planner_week_start");
+
   const weekCompleted =
     localStorage.getItem("hawash_planner_week_completed") === "true";
 
   const today = new Date().toISOString().split("T")[0];
 
-  if (!weekStart || weekCompleted) {
+  if (!weekStart) {
+    weekStart = today;
+
+    localStorage.setItem(
+      "hawash_planner_week_start",
+      weekStart
+    );
+
+    localStorage.setItem(
+      "hawash_planner_week_completed",
+      "false"
+    );
+  }
+
+  if (weekCompleted && today !== weekStart) {
     weekStart = today;
 
     localStorage.setItem(
