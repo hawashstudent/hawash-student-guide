@@ -1017,7 +1017,7 @@ item => `
 
   const { data, error } = await supabaseClient
     .from("planner_days")
-    .select("tasks")
+    .select("tasks, studied")
     .eq("user_id", user.id)
     .eq("planner_date", today)
     .maybeSingle();
@@ -1029,6 +1029,7 @@ item => `
 
   if (data) {
     document.getElementById("plannerTasks").value = data.tasks || "";
+document.getElementById("plannerStudied").value = data.studied || "";
   }
   }
   
