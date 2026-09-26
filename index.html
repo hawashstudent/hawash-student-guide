@@ -762,6 +762,7 @@ header p {
     <h3>الأسبوع الحالي</h3>
     <p id="plannerWeekDates"></p>
   </div>
+      
 
   <div class="content-card">
     <h3>إنجازات الأسبوع</h3>
@@ -831,8 +832,30 @@ header p {
       حفظ الأسبوع
     </button>
   </div>
-      
 </div>
+    
+      <div id="plannerHistorySection">
+
+  <div class="content-card" style="margin-top:20px;">
+    <h3>📚 سجل مخططي</h3>
+
+    <p style="color:#666;">
+      هون بتقدر ترجع لكل الأيام والأسابيع السابقة.
+    </p>
+
+    <button
+      type="button"
+      onclick="loadPlannerHistory()"
+      style="margin-top:12px; width:100%;"
+    >
+      عرض السجل
+    </button>
+  </div>
+
+  <div id="plannerHistoryContent"></div>
+
+      </div>
+
 
       
       <!-- دليل الطالب -->
@@ -1097,6 +1120,7 @@ item => `
   loadPlannerDay();
   loadPlannerWeekDates();
   updatePlannerWeekSection();
+  loadPlannerHistory();
 
   if (getPlannerDayNumber() >= 7) {
     loadPlannerWeek();
@@ -1428,6 +1452,194 @@ localStorage.setItem(
       console.log("LEAFLET NOT LOADED");
       return;
     }
+
+    async function loadPlannerHistory() {
+
+  const container =
+    document.getElementById("plannerHistoryContent");
+
+  if (!container) return;
+
+  const {
+    data: { user }
+  } = await supabaseClient.auth.getUser();
+
+  if (!user) return;
+
+  container.innerHTML = `
+    <div class="content-card">
+      <p>جاري تحميل السجل...</p>
+    </div>
+  `;
+
+  const { data: days, error: daysError } =
+    await supabaseClient
+      .from("planner_days")
+      .select(`
+        planner_date,
+        tasks,
+        studied,
+        achievements,
+        daily_rating,
+        daily_note
+      `)
+      .eq("user_id", user.id)
+      .order("planner_date", { ascending: false });
+
+  if (daysError) {
+    console.error("خطأ تحميل سجل الأيام:", daysError);
+
+    container.innerHTML = `
+      <div class="content-card">
+        <p>حدث خطأ أثناء تحميل سجل الأيام.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+  const { data: weeks, error: weeksError } =
+    await supabaseClient
+      .from("planner_weeks")
+      .select(`
+        week_start,
+        weekly_achievements,
+        best_achievement,
+        what_to_improve,
+        next_week_goal,
+        weekly_rating,
+        weekly_notes
+      `)
+      .eq("user_id", user.id)
+      .order("week_start", { ascending: false });
+
+  if (weeksError) {
+    console.error("خطأ تحميل سجل الأسابيع:", weeksError);
+
+    container.innerHTML = `
+      <div class="content-card">
+        <p>حدث خطأ أثناء تحميل سجل الأسابيع.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+  if ((!days || days.length === 0) &&
+      (!weeks || weeks.length === 0)) {
+
+    container.innerHTML = `
+      <div class="content-card">
+        <p>لسا ما في سجلات سابقة.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+  let html = "";
+
+  if (days && days.length > 0) {
+
+    html += `
+      <div class="content-card" style="margin-top:20px;">
+        <h3>📅 الأيام السابقة</h3>
+      </div>
+    `;
+
+    days.forEach(day => {
+
+      const date = new Date(
+        day.planner_date + "T00:00:00"
+      );
+
+      const formattedDate =
+        date.toLocaleDateString("ar-SY", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        });
+
+      html += `
+        <div class="content-card" style="margin-top:12px;">
+
+          <h3>${formattedDate}</h3>
+
+          <p><strong>المهام:</strong><br>
+          ${day.tasks || "—"}</p>
+
+          <p><strong>شو درست:</strong><br>
+          ${day.studied || "—"}</p>
+
+          <p><strong>الإنجازات:</strong><br>
+          ${day.achievements || "—"}</p>
+
+          <p><strong>التقييم:</strong>
+          ${day.daily_rating ? "⭐".repeat(day.daily_rating) : "—"}
+          </p>
+
+          <p><strong>ملاحظة:</strong><br>
+          ${day.daily_note || "—"}</p>
+
+        </div>
+      `;
+    });
+  }
+
+  if (weeks && weeks.length > 0) {
+
+    html += `
+      <div class="content-card" style="margin-top:20px;">
+        <h3>📊 الأسابيع السابقة</h3>
+      </div>
+    `;
+
+    weeks.forEach(week => {
+
+      const date = new Date(
+        week.week_start + "T00:00:00"
+      );
+
+      const formattedDate =
+        date.toLocaleDateString("ar-SY", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        });
+
+      html += `
+        <div class="content-card" style="margin-top:12px;">
+
+          <h3>أسبوع بدأ في ${formattedDate}</h3>
+
+          <p><strong>إنجازات الأسبوع:</strong><br>
+          ${week.weekly_achievements || "—"}</p>
+
+          <p><strong>أفضل إنجاز:</strong><br>
+          ${week.best_achievement || "—"}</p>
+
+          <p><strong>شو بدي حسّن:</strong><br>
+          ${week.what_to_improve || "—"}</p>
+
+          <p><strong>هدف الأسبوع القادم:</strong><br>
+          ${week.next_week_goal || "—"}</p>
+
+          <p><strong>التقييم:</strong>
+          ${week.weekly_rating ? "⭐".repeat(week.weekly_rating) : "—"}
+          </p>
+
+          <p><strong>ملاحظات:</strong><br>
+          ${week.weekly_notes || "—"}</p>
+
+        </div>
+      `;
+    });
+  }
+
+  container.innerHTML = html;
+  }
+    
 
     const imageBounds = [
   [34.775, 36.320],
