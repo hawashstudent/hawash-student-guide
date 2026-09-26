@@ -1146,18 +1146,7 @@ item => `
   }
 
   function getPlannerDayNumber() {
-  const weekStart = getPlannerWeekStart();
-
-  const start = new Date(weekStart + "T00:00:00");
-  const today = new Date();
-
-  start.setHours(0, 0, 0, 0);
-  today.setHours(0, 0, 0, 0);
-
-  const difference =
-    Math.floor((today - start) / 86400000);
-
-  return difference + 1;
+  return 7;
   }
 
   
