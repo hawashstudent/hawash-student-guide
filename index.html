@@ -1030,6 +1030,7 @@ async function checkStudentBranch() {
   if (!user) return;
 
   const branch = user.user_metadata?.branch;
+  currentStudentBranch = branch;
 
   if (!branch) {
 
