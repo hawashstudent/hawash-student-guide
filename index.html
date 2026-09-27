@@ -844,11 +844,12 @@ header p {
     </p>
 
     <button
-      type="button"
-      onclick="loadPlannerHistory()"
-      style="margin-top:12px; width:100%;"
-    >
-      عرض السجل
+  type="button"
+  id="plannerHistoryButton"
+  onclick="togglePlannerHistory()"
+  style="margin-top:12px; width:100%;"
+>
+  عرض السجل
     </button>
   </div>
 
@@ -1453,7 +1454,6 @@ localStorage.setItem(
     return;
   }
     
-  container.style.display = "block";
   container.innerHTML = `
     <div class="content-card">
       <p>جاري تحميل السجل...</p>
@@ -1667,6 +1667,31 @@ localStorage.setItem(
 
   container.innerHTML = html;
                  }
+
+  function togglePlannerHistory() {
+
+  const container =
+    document.getElementById("plannerHistoryContent");
+
+  const button =
+    document.getElementById("plannerHistoryButton");
+
+  if (!container || !button) return;
+
+  if (container.style.display === "none") {
+
+    container.style.display = "block";
+    button.textContent = "إلغاء عرض السجل";
+
+    loadPlannerHistory();
+
+  } else {
+
+    container.style.display = "none";
+    button.textContent = "عرض السجل";
+
+  }
+  }
   
   
   
