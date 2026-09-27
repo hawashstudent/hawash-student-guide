@@ -371,21 +371,26 @@ header p {
   }
     
   body[data-branch="dentistry"]::before {
-  content: "🦷   🪥   ⚕";
+  content: "";
   position: fixed;
-  top: 80px;
-  right: -25px;
 
-  font-size: 72px;
-  letter-spacing: 18px;
-  line-height: 1.8;
+  top: 70px;
+  right: -120px;
 
-  opacity: 0.045;
-  transform: rotate(-12deg);
+  width: 620px;
+  height: 620px;
+
+  background-image: url("dental_clean_test.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.16;
 
   pointer-events: none;
   z-index: 0;
-}
+  }
+    
 
 body[data-branch="dentistry"]::after {
   content: "🦷   ⚕   🪥";
