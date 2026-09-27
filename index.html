@@ -1098,10 +1098,21 @@ if (branchNameElement && branchInfo[branch]) {
   }
 
   document.getElementById("loginScreen").style.display = "none";
-  document.getElementById("branchScreen").style.display = "none";
-  document.getElementById("app").style.display = "block";
+document.getElementById("branchScreen").style.display = "none";
+document.getElementById("app").style.display = "block";
 
-  applyBranchTheme(branch);
+const branchNameElement =
+  document.getElementById("studentBranchName");
+
+if (branchNameElement && branchInfo[branch]) {
+  branchNameElement.innerHTML = `
+    <strong>
+      الفرع الدراسي: ${branchInfo[branch].name}
+    </strong>
+  `;
+}
+
+applyBranchTheme(branch);
 }
 
 
