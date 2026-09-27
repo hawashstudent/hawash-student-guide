@@ -1101,16 +1101,6 @@ if (branchNameElement && branchInfo[branch]) {
 document.getElementById("branchScreen").style.display = "none";
 document.getElementById("app").style.display = "block";
 
-const branchNameElement =
-  document.getElementById("studentBranchName");
-
-if (branchNameElement && branchInfo[branch]) {
-  branchNameElement.innerHTML = `
-    <strong>
-      الفرع الدراسي: ${branchInfo[branch].name}
-    </strong>
-  `;
-}
 
 applyBranchTheme(branch);
 }
