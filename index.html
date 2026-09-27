@@ -1076,6 +1076,16 @@ async function checkStudentBranch() {
   const branch = user.user_metadata?.branch;
   currentStudentBranch = branch;
 
+  const branchNameElement =
+  document.getElementById("studentBranchName");
+
+if (branchNameElement && branchInfo[branch]) {
+  branchNameElement.innerHTML = `
+    <strong>
+      الفرع الدراسي: ${branchInfo[branch].name}
+    </strong>
+  `;
+}
   
   
   if (!branch) {
