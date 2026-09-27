@@ -1058,6 +1058,17 @@ function applyBranchTheme(branch) {
   }
   
 
+  async function getStudentBranch() {
+
+  const {
+    data: { user }
+  } = await supabaseClient.auth.getUser();
+
+  if (!user) return null;
+
+  return user.user_metadata?.branch || null;
+  }
+
   
 
   async function loadData() {
