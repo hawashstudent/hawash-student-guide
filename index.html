@@ -1436,24 +1436,8 @@ localStorage.setItem(
   document.getElementById("plannerWeeklyNotes").value =
     data.weekly_notes || "";
   }
-  
-  
-   document.getElementById("loginScreen").style.display = "flex";
-   console.log("LOGIN TEST");
-  </script>
 
-  <script>
-  console.log("LEAFLET TEST:", typeof L);
-  </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    if (typeof L === "undefined") {
-      console.log("LEAFLET NOT LOADED");
-      return;
-    }
-
-    async function loadPlannerHistory() {
+  async function loadPlannerHistory() {
 
   const container =
     document.getElementById("plannerHistoryContent");
@@ -1464,7 +1448,10 @@ localStorage.setItem(
     data: { user }
   } = await supabaseClient.auth.getUser();
 
-  if (!user) return;
+  if (!user) {
+    alert("يجب تسجيل الدخول أولاً.");
+    return;
+  }
 
   container.innerHTML = `
     <div class="content-card">
@@ -1525,8 +1512,10 @@ localStorage.setItem(
     return;
   }
 
-  if ((!days || days.length === 0) &&
-      (!weeks || weeks.length === 0)) {
+  if (
+    (!days || days.length === 0) &&
+    (!weeks || weeks.length === 0)
+  ) {
 
     container.innerHTML = `
       <div class="content-card">
@@ -1538,6 +1527,10 @@ localStorage.setItem(
   }
 
   let html = "";
+
+  /* =========================
+     سجل الأيام
+  ========================= */
 
   if (days && days.length > 0) {
 
@@ -1566,26 +1559,43 @@ localStorage.setItem(
 
           <h3>${formattedDate}</h3>
 
-          <p><strong>المهام:</strong><br>
-          ${day.tasks || "—"}</p>
-
-          <p><strong>شو درست:</strong><br>
-          ${day.studied || "—"}</p>
-
-          <p><strong>الإنجازات:</strong><br>
-          ${day.achievements || "—"}</p>
-
-          <p><strong>التقييم:</strong>
-          ${day.daily_rating ? "⭐".repeat(day.daily_rating) : "—"}
+          <p>
+            <strong>المهام:</strong><br>
+            ${day.tasks || "—"}
           </p>
 
-          <p><strong>ملاحظة:</strong><br>
-          ${day.daily_note || "—"}</p>
+          <p>
+            <strong>شو درست:</strong><br>
+            ${day.studied || "—"}
+          </p>
+
+          <p>
+            <strong>الإنجازات:</strong><br>
+            ${day.achievements || "—"}
+          </p>
+
+          <p>
+            <strong>التقييم:</strong>
+            ${
+              day.daily_rating
+                ? "⭐".repeat(day.daily_rating)
+                : "—"
+            }
+          </p>
+
+          <p>
+            <strong>ملاحظة:</strong><br>
+            ${day.daily_note || "—"}
+          </p>
 
         </div>
       `;
     });
   }
+
+  /* =========================
+     سجل الأسابيع
+  ========================= */
 
   if (weeks && weeks.length > 0) {
 
@@ -1611,26 +1621,43 @@ localStorage.setItem(
       html += `
         <div class="content-card" style="margin-top:12px;">
 
-          <h3>أسبوع بدأ في ${formattedDate}</h3>
+          <h3>
+            أسبوع بدأ في ${formattedDate}
+          </h3>
 
-          <p><strong>إنجازات الأسبوع:</strong><br>
-          ${week.weekly_achievements || "—"}</p>
-
-          <p><strong>أفضل إنجاز:</strong><br>
-          ${week.best_achievement || "—"}</p>
-
-          <p><strong>شو بدي حسّن:</strong><br>
-          ${week.what_to_improve || "—"}</p>
-
-          <p><strong>هدف الأسبوع القادم:</strong><br>
-          ${week.next_week_goal || "—"}</p>
-
-          <p><strong>التقييم:</strong>
-          ${week.weekly_rating ? "⭐".repeat(week.weekly_rating) : "—"}
+          <p>
+            <strong>إنجازات الأسبوع:</strong><br>
+            ${week.weekly_achievements || "—"}
           </p>
 
-          <p><strong>ملاحظات:</strong><br>
-          ${week.weekly_notes || "—"}</p>
+          <p>
+            <strong>أفضل إنجاز:</strong><br>
+            ${week.best_achievement || "—"}
+          </p>
+
+          <p>
+            <strong>شو بدي حسّن:</strong><br>
+            ${week.what_to_improve || "—"}
+          </p>
+
+          <p>
+            <strong>هدف الأسبوع القادم:</strong><br>
+            ${week.next_week_goal || "—"}
+          </p>
+
+          <p>
+            <strong>التقييم:</strong>
+            ${
+              week.weekly_rating
+                ? "⭐".repeat(week.weekly_rating)
+                : "—"
+            }
+          </p>
+
+          <p>
+            <strong>ملاحظات:</strong><br>
+            ${week.weekly_notes || "—"}
+          </p>
 
         </div>
       `;
@@ -1638,7 +1665,28 @@ localStorage.setItem(
   }
 
   container.innerHTML = html;
-  }
+                 }
+  
+  
+  
+   document.getElementById("loginScreen").style.display = "flex";
+   console.log("LOGIN TEST");
+  </script>
+
+  <script>
+  console.log("LEAFLET TEST:", typeof L);
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof L === "undefined") {
+      console.log("LEAFLET NOT LOADED");
+      return;
+    }
+
+    
+
+    
     
 
     const imageBounds = [
