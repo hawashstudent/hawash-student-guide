@@ -1517,37 +1517,8 @@ localStorage.setItem(
     return;
   }
 
-  const { data: weeks, error: weeksError } =
-    await supabaseClient
-      .from("planner_weeks")
-      .select(`
-        week_start,
-        weekly_achievements,
-        best_achievement,
-        what_to_improve,
-        next_week_goal,
-        weekly_rating,
-        weekly_notes
-      `)
-      .eq("user_id", user.id)
-      .order("week_start", { ascending: false });
 
-  if (weeksError) {
-    console.error("خطأ تحميل سجل الأسابيع:", weeksError);
-
-    container.innerHTML = `
-      <div class="content-card">
-        <p>حدث خطأ أثناء تحميل سجل الأسابيع.</p>
-      </div>
-    `;
-
-    return;
-  }
-
-  if (
-    (!days || days.length === 0) &&
-    (!weeks || weeks.length === 0)
-  ) {
+  if (!days || days.length === 0) {
 
     container.innerHTML = `
       <div class="content-card">
@@ -1618,77 +1589,6 @@ localStorage.setItem(
           <p>
             <strong>ملاحظة:</strong><br>
             ${day.daily_note || "—"}
-          </p>
-
-        </div>
-      `;
-    });
-  }
-
-  /* =========================
-     سجل الأسابيع
-  ========================= */
-
-  if (weeks && weeks.length > 0) {
-
-    html += `
-      <div class="content-card" style="margin-top:20px;">
-        <h3>📊 الأسابيع السابقة</h3>
-      </div>
-    `;
-
-    weeks.forEach(week => {
-
-      const date = new Date(
-        week.week_start + "T00:00:00"
-      );
-
-      const formattedDate =
-        date.toLocaleDateString("ar-SY", {
-          year: "numeric",
-          month: "long",
-          day: "numeric"
-        });
-
-      html += `
-        <div class="content-card" style="margin-top:12px;">
-
-          <h3>
-            أسبوع بدأ في ${formattedDate}
-          </h3>
-
-          <p>
-            <strong>إنجازات الأسبوع:</strong><br>
-            ${week.weekly_achievements || "—"}
-          </p>
-
-          <p>
-            <strong>أفضل إنجاز:</strong><br>
-            ${week.best_achievement || "—"}
-          </p>
-
-          <p>
-            <strong>شو بدي حسّن:</strong><br>
-            ${week.what_to_improve || "—"}
-          </p>
-
-          <p>
-            <strong>هدف الأسبوع القادم:</strong><br>
-            ${week.next_week_goal || "—"}
-          </p>
-
-          <p>
-            <strong>التقييم:</strong>
-            ${
-              week.weekly_rating
-                ? "⭐".repeat(week.weekly_rating)
-                : "—"
-            }
-          </p>
-
-          <p>
-            <strong>ملاحظات:</strong><br>
-            ${week.weekly_notes || "—"}
           </p>
 
         </div>
