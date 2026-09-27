@@ -682,6 +682,9 @@ header p {
 
   <!-- مخططي الدراسي -->
   <div id="plannerPage" class="page">
+  <div id="plannerProgress" class="content-card" style="margin-bottom:15px; text-align:center;">
+  <strong>اليوم 1 من 7</strong>
+  </div>
     <button class="back" onclick="showPage('homePage')">← رجوع</button>
 
     <h2>📋 مخططي الدراسي</h2>
@@ -1121,7 +1124,8 @@ item => `
   loadPlannerDay();
   loadPlannerWeekDates();
   updatePlannerWeekSection();
-  loadPlannerHistory();
+  updatePlannerProgress();
+  }
 
   if (getPlannerDayNumber() >= 7) {
     loadPlannerWeek();
@@ -1216,6 +1220,33 @@ item => `
     day: "numeric"
   });
   }
+
+  function updatePlannerProgress() {
+  const element = document.getElementById("plannerProgress");
+
+  if (!element) return;
+
+  const dayNumber = getPlannerDayNumber();
+
+  if (dayNumber >= 7) {
+    element.innerHTML = `
+      <strong>اليوم 7 من 7 🎉</strong>
+      <div style="margin-top:6px;">
+        صار بإمكانك تقييم أسبوعك
+      </div>
+    `;
+  } else {
+    const remaining = 7 - dayNumber;
+
+    element.innerHTML = `
+      <strong>اليوم ${dayNumber} من 7</strong>
+      <div style="margin-top:6px;">
+        باقي ${remaining} أيام على التقييم الأسبوعي
+      </div>
+    `;
+  }
+  }
+  
 
   function loadPlannerWeekDates() {
   const element = document.getElementById("plannerWeekDates");
