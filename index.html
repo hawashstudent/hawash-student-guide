@@ -587,8 +587,60 @@ header p {
   </section>
 
 
-  <!-- التطبيق -->
-  <section id="app" class="app">
+  <!-- اختيار الفرع -->
+<section id="branchScreen" class="login-box" style="display: none;">
+  <div class="container">
+    <div class="card">
+
+      <h1>اختر فرعك</h1>
+
+      <p class="subtitle">
+        اختر الفرع الدراسي الخاص بك للمتابعة.
+      </p>
+
+      <div style="display:grid; gap:10px; margin-top:20px;">
+
+        <button type="button" onclick="selectBranch('dentistry')">
+          🦷 طب الأسنان
+        </button>
+
+        <button type="button" onclick="selectBranch('medicine')">
+          🩺 الطب البشري
+        </button>
+
+        <button type="button" onclick="selectBranch('pharmacy')">
+          💊 الصيدلة
+        </button>
+
+        <button type="button" onclick="selectBranch('nursing')">
+          👩‍⚕️ التمريض
+        </button>
+
+        <button type="button" onclick="selectBranch('engineering')">
+          ⚙️ الهندسات
+        </button>
+
+        <button type="button" onclick="selectBranch('law')">
+          ⚖️ الحقوق
+        </button>
+
+        <button type="button" onclick="selectBranch('business')">
+          💼 إدارة الأعمال
+        </button>
+
+        <button type="button" onclick="selectBranch('cosmetology')">
+          💇 التجميل
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- التطبيق -->
+<section id="app" class="app">
 
     <header>
       <div class="container">
@@ -939,12 +991,74 @@ if (authError) {
       return;
     }
 
-    document.getElementById("loginScreen").style.display = "none";
-    document.getElementById("app").style.display = "block";
+    await checkStudentBranch();
     
     
    loadData();
      }
+
+  async function selectBranch(branch) {
+
+  const { error } = await supabaseClient.auth.updateUser({
+    data: {
+      branch: branch
+    }
+  });
+
+  if (error) {
+    console.error("خطأ حفظ الفرع:", error);
+    alert("حدث خطأ أثناء حفظ الفرع.");
+    return;
+  }
+
+  document.getElementById("branchScreen").style.display = "none";
+  document.getElementById("app").style.display = "block";
+
+  applyBranchTheme(branch);
+
+  loadData();
+}
+
+
+async function checkStudentBranch() {
+
+  const {
+    data: { user }
+  } = await supabaseClient.auth.getUser();
+
+  if (!user) return;
+
+  const branch = user.user_metadata?.branch;
+
+  if (!branch) {
+
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("app").style.display = "none";
+    document.getElementById("branchScreen").style.display = "block";
+
+    return;
+  }
+
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("branchScreen").style.display = "none";
+  document.getElementById("app").style.display = "block";
+
+  applyBranchTheme(branch);
+}
+
+
+function applyBranchTheme(branch) {
+
+  document.body.setAttribute(
+    "data-branch",
+    branch
+  );
+
+  console.log("Branch:", branch);
+  }
+  
+
+  
 
   async function loadData() {
 
@@ -1764,14 +1878,14 @@ places.forEach(place => {
 
 
   async function restoreSession() {
+
   const {
     data: { session }
   } = await supabaseClient.auth.getSession();
 
   if (!session) return;
 
-  document.getElementById("loginScreen").style.display = "none";
-  document.getElementById("app").style.display = "block";
+  await checkStudentBranch();
 
   loadData();
 }
