@@ -300,6 +300,77 @@ header p {
   box-shadow: 0 5px 12px rgba(0, 105, 95, 0.18);
       }
 
+  .student-branch-badge {
+  position: relative;
+  margin: 18px 0 22px;
+  padding: 16px 20px;
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 168, 152, 0.12),
+      rgba(255, 192, 14, 0.12)
+    );
+
+  border: 1px solid rgba(0, 168, 152, 0.25);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.student-branch-badge::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: -65px;
+  right: -45px;
+  border-radius: 50%;
+  background: rgba(0, 168, 152, 0.12);
+}
+
+.student-branch-badge::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  bottom: -55px;
+  left: -35px;
+  border-radius: 50%;
+  background: rgba(255, 192, 14, 0.12);
+}
+
+.branch-label {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin-bottom: 5px;
+
+  color: #777;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.branch-name {
+  position: relative;
+  z-index: 2;
+  display: block;
+
+  color: #006f66;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+    
     .content-card {
   background: white;
   padding: 20px;
