@@ -161,122 +161,33 @@ input:focus {
   box-shadow: 0 12px 30px rgba(0, 105, 95, 0.25);
 }
 
-    /* 🦷 Premium Dental Hero Tooth */
+    
+
+/* 🦷 Simple Dental Smile */
 body[data-branch="dentistry"] header {
-  
   position: relative;
   overflow: hidden;
 }
 
 body[data-branch="dentistry"] .hero-tooth {
   position: absolute;
-  left: -18px;
-  bottom: -38px;
+  left: -12px;
+  bottom: -28px;
 
-  width: 115px;
-  height: 145px;
+  font-size: 105px;
+  line-height: 1;
 
-  transform: rotate(-16deg);
+  transform: rotate(-14deg);
+
+  filter:
+    drop-shadow(0 7px 10px rgba(0, 70, 65, 0.18));
+
+  opacity: 0.96;
+
   z-index: 1;
-
   pointer-events: none;
 }
 
-body[data-branch="dentistry"] .tooth-shape {
-  position: absolute;
-
-  width: 82px;
-  height: 105px;
-
-  left: 16px;
-  top: 8px;
-
-  background: linear-gradient(
-    145deg,
-    #ffffff 10%,
-    #f8ffff 55%,
-    #e3f3f1 100%
-  );
-
-  border: 2px solid rgba(0, 168, 152, 0.35);
-
-  border-radius:
-    48% 48% 42% 42%
-    / 42% 42% 58% 58%;
-
-  box-shadow:
-    0 8px 18px rgba(0, 80, 75, 0.14),
-    inset 5px 4px 8px rgba(255, 255, 255, 0.9);
-}
-
-/* جذور السن */
-body[data-branch="dentistry"] .tooth-root {
-  position: absolute;
-
-  bottom: -30px;
-
-  width: 24px;
-  height: 48px;
-
-  background: linear-gradient(
-    90deg,
-    #e9f7f5,
-    #ffffff,
-    #dcefeb
-  );
-
-  border: 2px solid rgba(0, 168, 152, 0.25);
-
-  border-top: none;
-
-  border-radius: 0 0 50% 50%;
-}
-
-body[data-branch="dentistry"] .tooth-root-left {
-  left: 18px;
-  transform: rotate(7deg);
-}
-
-body[data-branch="dentistry"] .tooth-root-right {
-  right: 18px;
-  transform: rotate(-7deg);
-}
-
-/* لمعة السن */
-body[data-branch="dentistry"] .tooth-highlight {
-  position: absolute;
-
-  width: 20px;
-  height: 38px;
-
-  left: 15px;
-  top: 17px;
-
-  background: rgba(255, 255, 255, 0.8);
-
-  border-radius: 50%;
-
-  transform: rotate(-18deg);
-
-  filter: blur(1px);
-}
-
-/* ابتسامة صغيرة أسفل السن */
-body[data-branch="dentistry"] .tooth-smile {
-  position: absolute;
-
-  width: 48px;
-  height: 18px;
-
-  left: 34px;
-  top: 91px;
-
-  border-bottom: 3px solid rgba(0, 168, 152, 0.55);
-
-  border-radius: 0 0 50% 50%;
-
-  transform: rotate(3deg);
-  }
 
 
     
@@ -856,14 +767,7 @@ body[data-branch="dentistry"]::after {
     <header>
   <div class="container">
 
-    <div class="hero-tooth" aria-hidden="true">
-      <div class="tooth-shape">
-        <div class="tooth-highlight"></div>
-        <div class="tooth-root tooth-root-left"></div>
-        <div class="tooth-root tooth-root-right"></div>
-      </div>
-      <div class="tooth-smile"></div>
-    </div>
+    <div class="hero-tooth" aria-hidden="true">🦷</div>
 
     <h2>دليل طالب الحواش</h2>
     <p>كل ما يحتاجه الطالب بمكان واحد</p>
