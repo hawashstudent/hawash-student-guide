@@ -1120,16 +1120,16 @@ item => `
     .classList.add("active");
 
   if (pageId === "plannerPage") {
-  loadPlannerDate();
-  loadPlannerDay();
-  loadPlannerWeekDates();
-  updatePlannerWeekSection();
-  updatePlannerProgress();
-  }
 
-  if (getPlannerDayNumber() >= 7) {
-    loadPlannerWeek();
-  }
+    loadPlannerDate();
+    loadPlannerDay();
+    loadPlannerWeekDates();
+    updatePlannerWeekSection();
+    updatePlannerProgress();
+
+    if (getPlannerDayNumber() >= 7) {
+      loadPlannerWeek();
+    }
   }
 
   window.scrollTo(0, 0);
