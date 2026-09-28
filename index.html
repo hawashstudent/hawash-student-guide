@@ -188,6 +188,63 @@ body[data-branch="dentistry"] .hero-tooth {
   pointer-events: none;
 }
 
+    /* 🦷 Small Dental Decorations */
+body[data-branch="dentistry"] .dental-edge-decor {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+body[data-branch="dentistry"] .mini-tooth {
+  position: absolute;
+
+  font-size: 28px;
+  line-height: 1;
+
+  opacity: 0.08;
+
+  filter:
+    drop-shadow(0 2px 4px rgba(0, 90, 85, 0.12));
+}
+
+/* أعلى اليمين */
+body[data-branch="dentistry"] .mini-tooth-1 {
+  top: 115px;
+  right: 18px;
+  transform: rotate(18deg);
+}
+
+/* يمين الصفحة */
+body[data-branch="dentistry"] .mini-tooth-2 {
+  top: 42%;
+  right: 10px;
+  transform: rotate(-14deg);
+}
+
+/* أسفل اليمين */
+body[data-branch="dentistry"] .mini-tooth-3 {
+  bottom: 90px;
+  right: 24px;
+  transform: rotate(22deg);
+}
+
+/* أسفل اليسار */
+body[data-branch="dentistry"] .mini-tooth-4 {
+  bottom: 35px;
+  left: 18px;
+  transform: rotate(-20deg);
+}
+
+/* أعلى اليسار */
+body[data-branch="dentistry"] .mini-tooth-5 {
+  top: 180px;
+  left: 12px;
+  transform: rotate(12deg);
+  }
 
 
     
@@ -774,6 +831,14 @@ body[data-branch="dentistry"]::after {
 
   </div>
     </header>
+
+  <div class="dental-edge-decor" aria-hidden="true">
+  <span class="mini-tooth mini-tooth-1">🦷</span>
+  <span class="mini-tooth mini-tooth-2">🦷</span>
+  <span class="mini-tooth mini-tooth-3">🦷</span>
+  <span class="mini-tooth mini-tooth-4">🦷</span>
+  <span class="mini-tooth mini-tooth-5">🦷</span>
+  </div>
   
   <div id="studentBranchName" class="student-branch-badge">
   <span class="branch-label">الفرع الدراسي</span>
