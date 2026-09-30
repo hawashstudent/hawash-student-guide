@@ -578,6 +578,170 @@ body[data-branch="dentistry"] #plannerPage
   font-weight: 900;
            }
 
+
+  /* =========================================================
+   🦷 DENTAL PLANNER INTRO
+   ========================================================= */
+
+body[data-branch="dentistry"] .dental-planner-intro {
+  position: relative;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+
+  align-items: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.98),
+      rgba(232,248,246,0.96)
+    ) !important;
+
+  border: 1px solid rgba(0,168,152,0.22) !important;
+}
+
+body[data-branch="dentistry"] .dental-planner-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #dff5f2
+    );
+
+  font-size: 32px;
+
+  box-shadow:
+    0 6px 15px rgba(0,100,95,0.10);
+}
+
+body[data-branch="dentistry"] .dental-planner-title {
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-branch="dentistry"] .dental-planner-title span {
+  color: #006f66;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+body[data-branch="dentistry"] .dental-planner-title small {
+  margin-top: 3px;
+
+  color: #008f82;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+
+  opacity: 0.65;
+}
+
+body[data-branch="dentistry"] .dental-planner-date {
+  grid-column: 1 / -1;
+
+  margin-top: 4px;
+  padding-top: 10px;
+
+  border-top: 1px solid rgba(0,168,152,0.12);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body[data-branch="dentistry"] .dental-planner-date span {
+  color: #47706c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+body[data-branch="dentistry"] .dental-planner-date strong {
+  color: #006f66;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   💡 DENTAL STUDY TIP
+   ========================================================= */
+
+body[data-branch="dentistry"] .dental-study-tip {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+
+  margin-top: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #fffaf0
+    ) !important;
+
+  border-right: 4px solid #ffc00e !important;
+}
+
+body[data-branch="dentistry"] .dental-tip-icon {
+  width: 45px;
+  height: 45px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,192,14,0.14);
+
+  font-size: 23px;
+}
+
+body[data-branch="dentistry"] .dental-tip-content {
+  flex: 1;
+}
+
+body[data-branch="dentistry"] .dental-tip-label {
+  color: #a47a00;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+body[data-branch="dentistry"] .dental-tip-content h3 {
+  margin-top: 3px;
+  margin-bottom: 6px;
+}
+
+body[data-branch="dentistry"] .dental-tip-content p {
+  margin: 0;
+
+  color: #5f5a48;
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+    
     
 
     .menu-card {
@@ -1221,10 +1385,44 @@ body[data-branch="dentistry"]::after {
     <h2>📋 مخططي الدراسي</h2>
     <br>
 
-    <div class="content-card">
-      <h3>اليوم</h3>
-      <p id="plannerDate"></p>
-    </div>
+    <div class="content-card dental-planner-intro">
+
+  <div class="dental-planner-icon" aria-hidden="true">
+    🦷
+  </div>
+
+  <div class="dental-planner-title">
+    <span>مخطط طالب الأسنان</span>
+    <small>DENTAL STUDENT PLANNER</small>
+  </div>
+
+  <div class="dental-planner-date">
+    <span>📅 اليوم</span>
+    <strong id="plannerDate"></strong>
+  </div>
+
+</div>
+
+<div class="content-card dental-study-tip">
+
+  <div class="dental-tip-icon" aria-hidden="true">
+    💡
+  </div>
+
+  <div class="dental-tip-content">
+    <span class="dental-tip-label">DENTAL STUDY TIP</span>
+
+    <h3>نصيحة اليوم لطالب الأسنان</h3>
+
+    <p>
+      لا تكتفي بقراءة المعلومة؛ حاول أن تربطها بصورة أو مخطط
+      أو مثال سريري حتى تثبت بشكل أفضل بذاكرتك.
+    </p>
+  </div>
+
+</div>
+
+
 
     <div id="plannerContent">
 
