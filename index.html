@@ -306,34 +306,252 @@ body[data-branch="dentistry"] #plannerPage {
   padding-bottom: 35px;
 }
 
-/* خلفية Blueprint خفيفة داخل المخطط */
-body[data-branch="dentistry"] #plannerPage::before {
-  content: "";
+/* =========================================================
+   🦷 DENTAL PLANNER — FINAL VISUAL IDENTITY
+   ========================================================= */
+
+/* إطار وهوية عامة للبلانر */
+
+body[data-branch="dentistry"] #plannerPage {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* زخرفة سن كبيرة وخفيفة في الزاوية */
+
+body[data-branch="dentistry"] #plannerPage::after {
+  content: "🦷";
+
   position: absolute;
-  inset: 0;
 
-  background:
-    linear-gradient(
-      rgba(0, 168, 152, 0.035) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 168, 152, 0.035) 1px,
-      transparent 1px
-    );
+  top: 105px;
+  left: -18px;
 
-  background-size: 28px 28px;
+  font-size: 85px;
+
+  line-height: 1;
+
+  opacity: 0.045;
+
+  transform: rotate(-18deg);
+
+  filter:
+    grayscale(1)
+    drop-shadow(0 3px 6px rgba(0,90,85,0.12));
 
   pointer-events: none;
+
   z-index: 0;
 }
 
-/* كل محتوى المخطط فوق الخلفية */
+
+/* زخرفة سريرية خفيفة في الجهة الثانية */
+
+body[data-branch="dentistry"] #plannerPage::before {
+  content: "✚";
+
+  position: absolute;
+
+  top: 185px;
+  right: 14px;
+
+  color: #00a898;
+
+  font-size: 58px;
+
+  font-weight: 300;
+
+  opacity: 0.055;
+
+  transform: rotate(12deg);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* نخلي محتوى البلانر فوق الزخارف */
+
 body[data-branch="dentistry"] #plannerPage > * {
   position: relative;
   z-index: 1;
 }
+
+
+/* خط Dental رفيع تحت عنوان البلانر */
+
+body[data-branch="dentistry"] #plannerPage > h2 {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* لمعة تركواز صغيرة داخل عنوان البلانر */
+
+body[data-branch="dentistry"] #plannerPage > h2::before {
+  content: "✦";
+
+  position: absolute;
+
+  top: 8px;
+  right: 14px;
+
+  color: #00a898;
+
+  font-size: 13px;
+
+  opacity: 0.55;
+}
+
+
+/* زخرفة ذهبية صغيرة */
+
+body[data-branch="dentistry"] #plannerPage > h2::after {
+  content: "DENTAL STUDENT PLANNER";
+
+  display: block;
+
+  margin-top: 5px;
+
+  color: #008f82;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  opacity: 0.65;
+}
+
+
+/* لمسات Dental خفيفة على الكروت */
+
+body[data-branch="dentistry"] #plannerPage
+.dental-main-task-card,
+body[data-branch="dentistry"] #plannerPage
+.dental-study-card,
+body[data-branch="dentistry"] #plannerPage
+.dental-achievements-card,
+body[data-branch="dentistry"] #plannerPage
+.dental-rating-card,
+body[data-branch="dentistry"] #plannerPage
+.dental-note-card {
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* خط تركواز صغير أعلى الكرت الرئيسي */
+
+body[data-branch="dentistry"] #plannerPage
+.dental-main-task-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 75px;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #00a898
+    );
+
+  opacity: 0.75;
+}
+
+
+/* خط ذهبي صغير على كرت الإنجازات */
+
+body[data-branch="dentistry"] #plannerPage
+.dental-achievements-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 55px;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ffc00e
+    );
+
+  opacity: 0.8;
+}
+
+
+/* لمسة تركواز على كرت الدراسة */
+
+body[data-branch="dentistry"] #plannerPage
+.dental-study-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 45px;
+  height: 3px;
+
+  background: #00a898;
+
+  opacity: 0.45;
+}
+
+
+/* كرت التقييم يأخذ هوية Dental هادئة */
+
+body[data-branch="dentistry"] #plannerPage
+.dental-rating-card::before {
+
+  content: "✦";
+
+  position: absolute;
+
+  top: 8px;
+  left: 12px;
+
+  color: #ffc00e;
+
+  font-size: 12px;
+
+  opacity: 0.55;
+}
+
+
+/* الملاحظة تبقى أهدأ من باقي العناصر */
+
+body[data-branch="dentistry"] #plannerPage
+.dental-note-card {
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.97),
+      rgba(248,252,251,0.96)
+    );
+  }
+
 
 
 /* =========================================================
@@ -1756,25 +1974,6 @@ body[data-branch="dentistry"]::after {
   <div class="dental-planner-date">
     <span>📅 اليوم</span>
     <strong id="plannerDate"></strong>
-  </div>
-
-</div>
-
-<div class="content-card dental-study-tip">
-
-  <div class="dental-tip-icon" aria-hidden="true">
-    💡
-  </div>
-
-  <div class="dental-tip-content">
-    <span class="dental-tip-label">DENTAL STUDY TIP</span>
-
-    <h3>نصيحة اليوم لطالب الأسنان</h3>
-
-    <p>
-      لا تكتفي بقراءة المعلومة؛ حاول أن تربطها بصورة أو مخطط
-      أو مثال سريري حتى تثبت بشكل أفضل بذاكرتك.
-    </p>
   </div>
 
 </div>
