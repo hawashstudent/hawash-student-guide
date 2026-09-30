@@ -913,6 +913,193 @@ textarea {
   box-shadow:
     inset 0 1px 3px rgba(0,70,65,0.035);
 }
+
+
+
+/* =========================================================
+   🦷 DENTAL PLANNER — STUDY SECTIONS
+   ========================================================= */
+
+body[data-branch="dentistry"] .dental-study-card,
+body[data-branch="dentistry"] .dental-achievements-card,
+body[data-branch="dentistry"] .dental-rating-card,
+body[data-branch="dentistry"] .dental-note-card {
+
+  margin-top: 15px;
+
+  padding: 16px;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.98),
+      rgba(247,252,251,0.97)
+    );
+
+  border: 1px solid rgba(0,168,152,0.15);
+
+  box-shadow:
+    0 6px 17px rgba(0,90,85,0.055),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+
+/* عنوان الأقسام */
+
+body[data-branch="dentistry"] .dental-section-header {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+/* أيقونة القسم */
+
+body[data-branch="dentistry"] .dental-section-icon {
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #e5f6f3
+    );
+
+  font-size: 21px;
+
+  box-shadow:
+    0 4px 10px rgba(0,100,95,0.07);
+}
+
+
+/* عنوان القسم */
+
+body[data-branch="dentistry"] .dental-section-header h3 {
+
+  margin: 0 !important;
+
+  color: #006f66;
+
+  font-size: 16px;
+
+  font-weight: 900;
+}
+
+
+/* الوصف الصغير */
+
+body[data-branch="dentistry"] .dental-section-header span {
+
+  display: block;
+
+  margin-top: 3px;
+
+  color: #718683;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* حقول الإدخال */
+
+body[data-branch="dentistry"] .dental-study-card textarea,
+body[data-branch="dentistry"] .dental-achievements-card textarea,
+body[data-branch="dentistry"] .dental-note-card textarea,
+body[data-branch="dentistry"] .dental-rating-card select {
+
+  border-color: rgba(0,168,152,0.18) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f9fcfb
+    );
+
+  box-shadow:
+    inset 0 1px 3px rgba(0,70,65,0.035);
+}
+
+
+/* لون كرت الإنجازات */
+
+body[data-branch="dentistry"] .dental-achievements-card {
+
+  border-right: 3px solid #ffc00e;
+}
+
+
+/* لون أيقونة الإنجازات */
+
+body[data-branch="dentistry"] .achievement-icon {
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf5,
+      #fff3c9
+    );
+}
+
+
+/* لون كرت التقييم */
+
+body[data-branch="dentistry"] .dental-rating-card {
+
+  border-right: 3px solid #00a898;
+}
+
+
+/* لون أيقونة التقييم */
+
+body[data-branch="dentistry"] .rating-icon {
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf5,
+      #fff5d6
+    );
+}
+
+
+/* لون كرت الملاحظة */
+
+body[data-branch="dentistry"] .dental-note-card {
+
+  opacity: 0.96;
+}
+
+
+/* لون أيقونة الملاحظة */
+
+body[data-branch="dentistry"] .note-icon {
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #eef8f7
+    );
+}
     
 
     .menu-card {
@@ -1616,46 +1803,101 @@ body[data-branch="dentistry"]::after {
     style="width:100%; box-sizing:border-box; margin-top:14px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
   ></textarea>
 
-  <h3 style="margin-top:20px;">شو درست اليوم؟</h3>
+  <div class="dental-study-card">
+
+  <div class="dental-section-header">
+    <div class="dental-section-icon">
+      📚
+    </div>
+
+    <div>
+      <h3>شو درست اليوم؟</h3>
+      <span>سجّل المواد والمواضيع اللي راجعتها اليوم</span>
+    </div>
+  </div>
 
   <textarea
     id="plannerStudied"
     placeholder="اكتب المواد أو المواضيع اللي درستها اليوم..."
     rows="4"
-    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+    style="width:100%; box-sizing:border-box; margin-top:14px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
   ></textarea>
 
-  <h3 style="margin-top:20px;">إنجازاتي اليوم</h3>
+  </div>
+    
+
+  <div class="dental-achievements-card">
+
+  <div class="dental-section-header">
+    <div class="dental-section-icon achievement-icon">
+      🏆
+    </div>
+
+    <div>
+      <h3>إنجازاتي اليوم</h3>
+      <span>شو الشي اللي قدرت تنجزه اليوم؟</span>
+    </div>
+  </div>
 
   <textarea
     id="plannerAchievements"
     placeholder="اكتب شو أنجزت اليوم..."
     rows="4"
-    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+    style="width:100%; box-sizing:border-box; margin-top:14px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
   ></textarea>
 
-    <h3 style="margin-top:20px;">تقييم اليوم</h3>
+  </div>
+    
 
-<select
-  id="plannerRating"
-  style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit;"
->
-  <option value="">اختر تقييمك لليوم</option>
-  <option value="1">⭐ 1 / 5</option>
-  <option value="2">⭐⭐ 2 / 5</option>
-  <option value="3">⭐⭐⭐ 3 / 5</option>
-  <option value="4">⭐⭐⭐⭐ 4 / 5</option>
-  <option value="5">⭐⭐⭐⭐⭐ 5 / 5</option>
-</select>
+    <div class="dental-rating-card">
 
-<h3 style="margin-top:20px;">ملاحظة اليوم</h3>
+  <div class="dental-section-header">
+    <div class="dental-section-icon rating-icon">
+      ⭐
+    </div>
 
-<textarea
-  id="plannerNote"
-  placeholder="اكتب أي ملاحظة عن يومك..."
-  rows="4"
-  style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
-></textarea>
+    <div>
+      <h3>تقييم اليوم</h3>
+      <span>قيّم يومك الدراسي من 5</span>
+    </div>
+  </div>
+
+  <select
+    id="plannerRating"
+    style="width:100%; box-sizing:border-box; margin-top:14px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit;"
+  >
+    <option value="">اختر تقييمك لليوم</option>
+    <option value="1">⭐ 1 / 5</option>
+    <option value="2">⭐⭐ 2 / 5</option>
+    <option value="3">⭐⭐⭐ 3 / 5</option>
+    <option value="4">⭐⭐⭐⭐ 4 / 5</option>
+    <option value="5">⭐⭐⭐⭐⭐ 5 / 5</option>
+  </select>
+
+    </div>
+    
+
+<div class="dental-note-card">
+
+  <div class="dental-section-header">
+    <div class="dental-section-icon note-icon">
+      💭
+    </div>
+
+    <div>
+      <h3>ملاحظة اليوم</h3>
+      <span>أي شيء بتحب تتذكره عن يومك</span>
+    </div>
+  </div>
+
+  <textarea
+    id="plannerNote"
+    placeholder="اكتب أي ملاحظة عن يومك..."
+    rows="3"
+    style="width:100%; box-sizing:border-box; margin-top:14px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+  ></textarea>
+
+</div>
     
   <button
     
