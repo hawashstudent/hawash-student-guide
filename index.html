@@ -296,6 +296,290 @@ header p {
       gap: 12px;
     }
 
+  /* =========================================================
+   🦷 DENTISTRY PLANNER — PREMIUM DENTAL BLUEPRINT
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerPage {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 35px;
+}
+
+/* خلفية Blueprint خفيفة داخل المخطط */
+body[data-branch="dentistry"] #plannerPage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(0, 168, 152, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 168, 152, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 28px 28px;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* كل محتوى المخطط فوق الخلفية */
+body[data-branch="dentistry"] #plannerPage > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   🦷 عنوان المخطط
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerPage > h2 {
+  position: relative;
+
+  margin: 8px 0 18px;
+  padding: 16px 18px;
+
+  border-radius: 18px;
+
+  color: #005f58;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.96),
+      rgba(232,248,246,0.94)
+    );
+
+  border: 1px solid rgba(0,168,152,0.20);
+
+  box-shadow:
+    0 10px 25px rgba(0, 90, 85, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+
+  text-align: center;
+  font-size: 23px;
+  font-weight: 900;
+}
+
+
+/* خط صغير تحت العنوان */
+body[data-branch="dentistry"] #plannerPage > h2::after {
+  content: "DENTAL STUDENT PLANNER";
+
+  display: block;
+
+  margin-top: 5px;
+
+  color: #008f82;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   📅 بطاقة اليوم
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerPage
+.content-card {
+  border: 1px solid rgba(0,168,152,0.16);
+
+  box-shadow:
+    0 8px 22px rgba(0, 75, 70, 0.07),
+    inset 0 1px 0 rgba(255,255,255,0.85);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.97),
+      rgba(246,252,251,0.96)
+    );
+}
+
+
+/* أول بطاقة — اليوم */
+body[data-branch="dentistry"] #plannerPage
+.content-card:first-of-type {
+  border-top: 4px solid #00a898;
+}
+
+
+/* =========================================================
+   📊 شريط التقدم
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerProgress {
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #edf9f7
+    ) !important;
+
+  border: 1px solid rgba(0,168,152,0.25) !important;
+
+  border-radius: 18px !important;
+
+  box-shadow:
+    0 8px 20px rgba(0, 100, 95, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+body[data-branch="dentistry"] #plannerProgress strong {
+  color: #006f66;
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   🦷 نصوص عناوين الأقسام
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerPage h3 {
+  color: #006f66;
+  font-weight: 850;
+}
+
+
+/* =========================================================
+   ✍️ حقول الكتابة
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerPage textarea,
+body[data-branch="dentistry"] #plannerPage select {
+  border: 1px solid rgba(0,150,140,0.22) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f7fcfb
+    );
+
+  color: #24413e;
+
+  box-shadow:
+    inset 0 1px 3px rgba(0,70,65,0.035);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* عند الضغط داخل الحقل */
+body[data-branch="dentistry"] #plannerPage textarea:focus,
+body[data-branch="dentistry"] #plannerPage select:focus {
+  outline: none;
+
+  border-color: #00a898 !important;
+
+  box-shadow:
+    0 0 0 3px rgba(0,168,152,0.10),
+    inset 0 1px 3px rgba(0,70,65,0.03);
+}
+
+
+/* =========================================================
+   🦷 أزرار الحفظ
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerPage button {
+  border-radius: 14px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 15px rgba(0,105,95,0.14);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+body[data-branch="dentistry"] #plannerPage button:active {
+  transform: translateY(1px);
+
+  box-shadow:
+    0 3px 8px rgba(0,105,95,0.12);
+}
+
+
+/* =========================================================
+   🦷 عنوان اليوم
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerDate {
+  color: #00786e;
+
+  font-weight: 800;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   🦷 بطاقة السجل
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerHistorySection {
+  margin-top: 20px;
+}
+
+body[data-branch="dentistry"] #plannerHistorySection
+.content-card {
+  border-right: 4px solid #00a898;
+}
+
+
+/* =========================================================
+   🦷 بطاقة الأسبوع
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerWeekSection {
+  position: relative;
+}
+
+body[data-branch="dentistry"] #plannerWeekSection
+.content-card:first-child {
+  border-top: 4px solid #ffc00e;
+}
+
+
+/* =========================================================
+   ✨ لمسة Dental Blueprint صغيرة
+   ========================================================= */
+
+body[data-branch="dentistry"] #plannerPage
+.content-card h3::before {
+  content: "•";
+
+  display: inline-block;
+
+  margin-left: 7px;
+
+  color: #00a898;
+
+  font-size: 18px;
+  font-weight: 900;
+           }
+
+    
+
     .menu-card {
   position: relative;
   overflow: hidden;
