@@ -826,7 +826,93 @@ body[data-branch="dentistry"] .dental-tip-content p {
   font-size: 11px !important;
   line-height: 1.55 !important;
   }
-    
+
+
+ /* =========================================================
+   🦷 DENTAL MAIN TASK CARD
+   ========================================================= */
+
+body[data-branch="dentistry"] .dental-main-task-card {
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid rgba(0,168,152,0.20) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.98),
+      rgba(239,250,248,0.96)
+    ) !important;
+
+  box-shadow:
+    0 8px 20px rgba(0,90,85,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+
+  border-radius: 18px !important;
+}
+
+body[data-branch="dentistry"] .dental-task-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+body[data-branch="dentistry"] .dental-task-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #dff5f2
+    );
+
+  font-size: 23px;
+
+  box-shadow:
+    0 5px 12px rgba(0,100,95,0.09);
+}
+
+body[data-branch="dentistry"] .dental-task-header h3 {
+  margin: 0 !important;
+  color: #006f66;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+body[data-branch="dentistry"] .dental-task-header span {
+  display: block;
+  margin-top: 3px;
+
+  color: #6b8582;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+body[data-branch="dentistry"] .dental-main-task-card
+textarea {
+  border-color: rgba(0,168,152,0.20) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8fcfb
+    );
+
+  box-shadow:
+    inset 0 1px 3px rgba(0,70,65,0.035);
+}
     
 
     .menu-card {
@@ -1510,14 +1596,24 @@ body[data-branch="dentistry"]::after {
 
     <div id="plannerContent">
 
-  <div class="content-card">
-  <h3>مهامي اليوم</h3>
+  <div class="content-card dental-main-task-card">
+
+  <div class="dental-task-header">
+    <div class="dental-task-icon">
+      📝
+    </div>
+
+    <div>
+      <h3>مهامي اليوم</h3>
+      <span>خطط ليومك الدراسي وأنجز خطوة بخطوة</span>
+    </div>
+  </div>
 
   <textarea
     id="plannerTasks"
     placeholder="اكتب مهامك لليوم..."
     rows="5"
-    style="width:100%; box-sizing:border-box; margin-top:10px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
+    style="width:100%; box-sizing:border-box; margin-top:14px; padding:12px; border:1px solid #ddd; border-radius:12px; font-family:inherit; resize:vertical;"
   ></textarea>
 
   <h3 style="margin-top:20px;">شو درست اليوم؟</h3>
