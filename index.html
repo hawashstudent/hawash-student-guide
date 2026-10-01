@@ -1318,6 +1318,439 @@ body[data-branch="dentistry"] .note-icon {
       #eef8f7
     );
 }
+
+
+
+  /* =========================================================
+   🩺 MEDICINE — PREMIUM MEDICAL THEME
+   ========================================================= */
+
+body[data-branch="medicine"] header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* زخرفة سماعة طبية كبيرة وناعمة */
+body[data-branch="medicine"] header::after {
+  content: "🩺";
+
+  position: absolute;
+
+  left: -12px;
+  bottom: -24px;
+
+  font-size: 100px;
+  line-height: 1;
+
+  opacity: 0.20;
+
+  transform: rotate(-12deg);
+
+  filter:
+    drop-shadow(0 6px 10px rgba(0, 80, 120, 0.16));
+
+  pointer-events: none;
+}
+
+/* لمسة طبية صغيرة */
+body[data-branch="medicine"] header::before {
+  content: "✚";
+
+  position: absolute;
+
+  right: 24px;
+  top: 18px;
+
+  color: #ffffff;
+
+  font-size: 38px;
+
+  opacity: 0.12;
+
+  font-weight: 300;
+
+  transform: rotate(8deg);
+}
+
+/* زخارف طبية على أطراف الصفحة */
+body[data-branch="medicine"] .medical-edge-decor {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+body[data-branch="medicine"] .mini-medical {
+  position: absolute;
+
+  font-size: 30px;
+
+  line-height: 1;
+
+  opacity: 0.14;
+
+  filter:
+    drop-shadow(0 2px 5px rgba(0, 90, 120, 0.12));
+}
+
+/* أعلى اليمين */
+body[data-branch="medicine"] .mini-medical-1 {
+  top: 115px;
+  right: 18px;
+  transform: rotate(15deg);
+}
+
+/* منتصف اليمين */
+body[data-branch="medicine"] .mini-medical-2 {
+  top: 43%;
+  right: 10px;
+  transform: rotate(-12deg);
+}
+
+/* أسفل اليمين */
+body[data-branch="medicine"] .mini-medical-3 {
+  bottom: 90px;
+  right: 24px;
+  transform: rotate(18deg);
+}
+
+/* أسفل اليسار */
+body[data-branch="medicine"] .mini-medical-4 {
+  bottom: 35px;
+  left: 18px;
+  transform: rotate(-15deg);
+}
+
+/* أعلى اليسار */
+body[data-branch="medicine"] .mini-medical-5 {
+  top: 180px;
+  left: 12px;
+  transform: rotate(10deg);
+}
+
+
+/* =========================================================
+   🩺 MEDICINE PLANNER
+   ========================================================= */
+
+body[data-branch="medicine"] #plannerPage {
+  position: relative;
+
+  overflow: hidden;
+
+  padding-bottom: 35px;
+}
+
+/* زخرفة سماعة كبيرة وخفيفة داخل البلانر */
+
+body[data-branch="medicine"] #plannerPage::after {
+  content: "🩺";
+
+  position: absolute;
+
+  top: 105px;
+  left: -20px;
+
+  font-size: 82px;
+
+  opacity: 0.045;
+
+  transform: rotate(-18deg);
+
+  filter:
+    grayscale(1)
+    drop-shadow(0 3px 6px rgba(0,90,120,0.12));
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* علامة طبية خفيفة */
+
+body[data-branch="medicine"] #plannerPage::before {
+  content: "✚";
+
+  position: absolute;
+
+  top: 185px;
+  right: 14px;
+
+  color: #168bb5;
+
+  font-size: 58px;
+
+  opacity: 0.055;
+
+  transform: rotate(10deg);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* المحتوى فوق الزخارف */
+
+body[data-branch="medicine"] #plannerPage > * {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* عنوان البلانر */
+
+body[data-branch="medicine"] #plannerPage > h2 {
+  position: relative;
+
+  margin: 8px 0 18px;
+
+  padding: 16px 18px;
+
+  border-radius: 18px;
+
+  color: #12617b;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.97),
+      rgba(232,247,252,0.95)
+    );
+
+  border: 1px solid rgba(22,139,181,0.20);
+
+  box-shadow:
+    0 10px 25px rgba(20,100,125,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+
+  text-align: center;
+
+  font-size: 23px;
+
+  font-weight: 900;
+}
+
+/* الهوية الإنجليزية الصغيرة */
+
+body[data-branch="medicine"] #plannerPage > h2::after {
+  content: "MEDICAL STUDENT PLANNER";
+
+  display: block;
+
+  margin-top: 5px;
+
+  color: #168bb5;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   📅 بطاقة اليوم
+   ========================================================= */
+
+body[data-branch="medicine"] #plannerPage .content-card {
+  border: 1px solid rgba(22,139,181,0.15);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.97),
+      rgba(246,251,253,0.96)
+    );
+
+  box-shadow:
+    0 8px 22px rgba(20,90,115,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.85);
+}
+
+/* بطاقة التاريخ */
+
+body[data-branch="medicine"] #plannerPage
+.content-card:has(#plannerDate) {
+  margin-top: 0 !important;
+
+  margin-bottom: 10px !important;
+
+  padding: 10px 14px !important;
+
+  border-radius: 13px !important;
+
+  border-top: 2px solid #168bb5 !important;
+}
+
+body[data-branch="medicine"] #plannerPage
+.content-card:has(#plannerDate) h3 {
+  display: inline;
+
+  margin: 0 !important;
+
+  font-size: 12px;
+}
+
+body[data-branch="medicine"] #plannerDate {
+  display: inline;
+
+  margin-right: 8px;
+
+  font-size: 12px !important;
+
+  font-weight: 700;
+
+  color: #527580 !important;
+}
+
+
+/* =========================================================
+   📊 التقدم الأسبوعي
+   ========================================================= */
+
+body[data-branch="medicine"] #plannerProgress {
+  margin-bottom: 8px !important;
+
+  padding: 6px 10px !important;
+
+  border-radius: 9px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.97),
+      rgba(237,248,252,0.96)
+    ) !important;
+
+  border: 1px solid rgba(22,139,181,0.13) !important;
+
+  box-shadow:
+    0 2px 7px rgba(20,90,115,0.04) !important;
+
+  color: #527580;
+
+  font-size: 10px;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+body[data-branch="medicine"] #plannerProgress strong {
+  color: #12617b;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   ✏️ العناوين والحقول
+   ========================================================= */
+
+body[data-branch="medicine"] #plannerPage h3 {
+  color: #12617b;
+
+  font-weight: 850;
+}
+
+body[data-branch="medicine"] #plannerPage textarea,
+body[data-branch="medicine"] #plannerPage select {
+  border: 1px solid rgba(22,139,181,0.20) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8fcfd
+    );
+
+  color: #294b55;
+
+  box-shadow:
+    inset 0 1px 3px rgba(20,70,90,0.035);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+body[data-branch="medicine"] #plannerPage textarea:focus,
+body[data-branch="medicine"] #plannerPage select:focus {
+  outline: none;
+
+  border-color: #168bb5 !important;
+
+  box-shadow:
+    0 0 0 3px rgba(22,139,181,0.10),
+    inset 0 1px 3px rgba(20,70,90,0.03);
+}
+
+
+/* =========================================================
+   🩺 أزرار البلانر
+   ========================================================= */
+
+body[data-branch="medicine"] #plannerPage button {
+  border-radius: 14px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 15px rgba(20,90,115,0.13);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+body[data-branch="medicine"] #plannerPage button:active {
+  transform: translateY(1px);
+
+  box-shadow:
+    0 3px 8px rgba(20,90,115,0.10);
+}
+
+
+/* =========================================================
+   📚 السجل
+   ========================================================= */
+
+body[data-branch="medicine"] #plannerHistorySection {
+  margin-top: 20px;
+}
+
+body[data-branch="medicine"] #plannerHistorySection
+.content-card {
+  border-right: 4px solid #168bb5;
+}
+
+
+/* =========================================================
+   📆 الأسبوع
+   ========================================================= */
+
+body[data-branch="medicine"] #plannerWeekSection {
+  position: relative;
+}
+
+body[data-branch="medicine"] #plannerWeekSection
+.content-card:first-child {
+  border-top: 4px solid #4aa9c9;
+    }
+
     
 
     .menu-card {
