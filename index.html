@@ -1947,6 +1947,30 @@ body[data-branch="medicine"] #plannerWeekSection
   border-top: 4px solid #4aa9c9;
     }
 
+/* 🦷 زخرفة السن الشفافة داخل هيدر الأسنان */
+
+body[data-branch="dentistry"] header::before {
+  content: "🦷";
+  position: absolute;
+
+  top: 18px;
+  right: 55px;
+
+  font-size: 125px;
+  line-height: 1;
+
+  opacity: 0.075;
+
+  transform: rotate(12deg);
+
+  filter:
+    grayscale(1)
+    drop-shadow(0 3px 7px rgba(0,90,85,0.10));
+
+  pointer-events: none;
+  z-index: 0;
+}
+
     
 
     .menu-card {
