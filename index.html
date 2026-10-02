@@ -3756,6 +3756,17 @@ item => `
         .select("*")
         .order("id");
 
+const deanNames = {
+  "كلية طب الأسنان": "نورا علي",
+  "كلية التجميل": "منار خوري",
+  "كلية الحقوق": "طارق الأبيض",
+  "كلية الطب البشري": "هيام بشارة",
+  "كلية الهندسات": "يمان غازي",
+  "كلية إدارة الأعمال": "إلياس ميلاني",
+  "كلية التمريض": "عماد إسحاق",
+  "كلية الصيدلة": "مي كرمان"
+};
+  
     const facultiesElement =
       document.getElementById("facultiesList");
 
@@ -3774,38 +3785,53 @@ item => `
 
         return `
   <div class="faculty-card">
-    <h3>
-  🏫 ${faculty.name || ""}
+  <h3>
+    🏫 ${faculty.name || ""}
+  </h3>
+
+  ${
+    deanNames[faculty.name]
+      ? `
+        <div class="faculty-dean">
+          <span>👤</span>
+          <div>
+            <small>عميد الكلية</small>
+            <strong>${deanNames[faculty.name]}</strong>
+          </div>
+        </div>
+      `
+      : ""
+  }
+
   ${
     faculty.name === "كلية الفنون الأدائية" ||
     faculty.name === "كلية العلاج الطبيعي والطب التكميلي"
       ? '<span class="faculty-status">قيد الإنشاء</span>'
       : ""
   }
-</h3>
 
-    ${
-      faculty.description
-        ? `<div class="faculty-card-description">${faculty.description}</div>`
-        : ""
-    }
+  ${
+    faculty.description
+      ? `<div class="faculty-card-description">${faculty.description}</div>`
+      : ""
+  }
 
-    ${
-      facultyDepartments.length > 0
-        ? `
-          <div class="departments-title">📚 الأقسام</div>
+  ${
+    facultyDepartments.length > 0
+      ? `
+        <div class="departments-title">📚 الأقسام</div>
 
-          <div>
-            ${facultyDepartments.map(department => `
-              <div class="department-item">
-                ${department.name || ""}
-              </div>
-            `).join("")}
-          </div>
-        `
-        : ""
-    }
-  </div>
+        <div>
+          ${facultyDepartments.map(department => `
+            <div class="department-item">
+              ${department.name || ""}
+            </div>
+          `).join("")}
+        </div>
+      `
+      : ""
+  }
+</div>
 `;
       }).join("");
   }
