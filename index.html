@@ -2304,56 +2304,35 @@ body[data-branch="cosmetology"] .planner-branch-icon::before {
 
 
 /* =========================================================
-   ENGINEERING — PROFESSIONAL IDENTITY
+   ENGINEERING — THREE CORNERS IDENTITY
    Architecture + Informatics + Civil Engineering
    ========================================================= */
 
+/* الزاوية السفلية اليسرى — العمارة */
 body[data-branch="engineering"] .hero-decoration {
   position: absolute;
-  left: -22px;
+  left: -20px;
   bottom: -34px;
-  width: 155px;
-  height: 150px;
+  width: 120px;
+  height: 135px;
   z-index: 1;
   pointer-events: none;
-  transform: rotate(-7deg);
 }
 
-/* Architecture */
 body[data-branch="engineering"] .hero-decoration::before {
-  content: "🏗️";
+  content: "🏛️";
   position: absolute;
   left: 0;
-  bottom: -2px;
-  font-size: 82px;
+  bottom: 0;
+  font-size: 92px;
   line-height: 1;
   opacity: 0.88;
-  filter:
-    drop-shadow(0 6px 8px rgba(50,60,70,0.18));
-  transform: rotate(-5deg);
+  transform: rotate(-7deg);
+  filter: drop-shadow(0 7px 10px rgba(60,70,80,0.18));
 }
 
-/* Informatics + Civil Engineering */
-body[data-branch="engineering"] .hero-decoration::after {
-  content: "💻";
-  position: absolute;
-  left: 62px;
-  bottom: 28px;
-  font-size: 48px;
-  line-height: 1;
-  opacity: 0.88;
-  filter:
-    drop-shadow(0 5px 8px rgba(50,60,70,0.16));
-  transform: rotate(6deg);
-}
 
-/* Civil Engineering — extra visual layer */
-body[data-branch="engineering"] .hero-decoration {
-  text-shadow:
-    0 0 1px rgba(70,80,90,0.12);
-}
-
-/* Edge decorations */
+/* زوايا الصفحة */
 body[data-branch="engineering"] .branch-edge-decor {
   position: fixed;
   inset: 0;
@@ -2362,29 +2341,36 @@ body[data-branch="engineering"] .branch-edge-decor {
   z-index: 0;
 }
 
+
+/* الزاوية العلوية اليسرى — المعلوماتية */
+body[data-branch="engineering"] .branch-edge-decor::after {
+  content: "💻";
+  position: absolute;
+  top: 105px;
+  left: 14px;
+  font-size: 48px;
+  line-height: 1;
+  opacity: 0.10;
+  transform: rotate(-10deg);
+  filter: drop-shadow(0 4px 8px rgba(60,70,80,0.14));
+}
+
+
+/* الزاوية العلوية اليمنى — المدنية */
 body[data-branch="engineering"] .branch-edge-decor::before {
   content: "🏗️";
   position: absolute;
-  top: 118px;
+  top: 115px;
   right: 12px;
-  font-size: 38px;
-  opacity: 0.09;
-  transform: rotate(10deg);
-  filter: drop-shadow(0 3px 6px rgba(70,80,90,0.12));
-}
-
-body[data-branch="engineering"] .branch-edge-decor::after {
-  content: "⌁";
-  position: absolute;
-  bottom: 48px;
-  left: 18px;
   font-size: 48px;
-  color: #5d6870;
-  opacity: 0.08;
-  transform: rotate(-12deg);
+  line-height: 1;
+  opacity: 0.10;
+  transform: rotate(9deg);
+  filter: drop-shadow(0 4px 8px rgba(60,70,80,0.14));
 }
 
-/* Planner icon */
+
+/* أيقونة البلانر */
 body[data-branch="engineering"] .planner-branch-icon {
   position: relative;
   width: 54px;
@@ -2392,27 +2378,31 @@ body[data-branch="engineering"] .planner-branch-icon {
   overflow: hidden;
 }
 
+
+/* العمارة */
 body[data-branch="engineering"] .planner-branch-icon::before {
   content: "🏛️";
   position: absolute;
-  left: 4px;
-  bottom: 5px;
+  left: 3px;
+  bottom: 4px;
   font-size: 25px;
   line-height: 1;
-  z-index: 1;
   transform: rotate(-5deg);
+  z-index: 1;
 }
 
+
+/* المعلوماتية */
 body[data-branch="engineering"] .planner-branch-icon::after {
   content: "💻";
   position: absolute;
   right: 2px;
-  top: 7px;
+  top: 6px;
   font-size: 19px;
   line-height: 1;
-  z-index: 2;
   transform: rotate(5deg);
-  }
+  z-index: 2;
+}
 
     
 
