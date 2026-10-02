@@ -1001,6 +1001,102 @@ body[data-branch="dentistry"] .dental-planner-date strong {
 
 
 /* =========================================================
+   🦷 DENTISTRY — RESTORE BRANCH IDENTITY
+   ========================================================= */
+
+/* السن الكبير المائل في الهيدر */
+
+body[data-branch="dentistry"] .hero-decoration {
+  position: absolute;
+  left: -12px;
+  bottom: -28px;
+  width: 115px;
+  height: 145px;
+  z-index: 1;
+  pointer-events: none;
+  transform: rotate(-14deg);
+}
+
+body[data-branch="dentistry"] .hero-decoration::before {
+  content: "🦷";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 105px;
+  line-height: 1;
+  filter: drop-shadow(0 7px 10px rgba(0, 70, 65, 0.18));
+  opacity: 0.96;
+}
+
+
+/* زخارف الأسنان على أطراف الصفحة */
+
+body[data-branch="dentistry"] .branch-edge-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+body[data-branch="dentistry"] .branch-edge-decor::before {
+  content: "🦷";
+  position: absolute;
+  top: 115px;
+  right: 18px;
+  font-size: 30px;
+  line-height: 1;
+  opacity: 0.16;
+  transform: rotate(18deg);
+  filter: drop-shadow(0 2px 4px rgba(0, 90, 85, 0.12));
+}
+
+body[data-branch="dentistry"] .branch-edge-decor::after {
+  content: "🦷";
+  position: absolute;
+  bottom: 35px;
+  left: 18px;
+  font-size: 30px;
+  line-height: 1;
+  opacity: 0.16;
+  transform: rotate(-20deg);
+  filter: drop-shadow(0 2px 4px rgba(0, 90, 85, 0.12));
+}
+
+
+/* أيقونة الأسنان داخل المخطط */
+
+body[data-branch="dentistry"] .planner-branch-icon {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #dff5f2
+    );
+
+  box-shadow:
+    0 6px 15px rgba(0,100,95,0.10);
+
+  position: relative;
+}
+
+body[data-branch="dentistry"] .planner-branch-icon::before {
+  content: "🦷";
+  font-size: 32px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,90,85,0.12));
+  }
+
+    
+
+/* =========================================================
    💡 DENTAL STUDY TIP
    ========================================================= */
 
