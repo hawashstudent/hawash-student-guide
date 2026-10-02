@@ -875,6 +875,45 @@ body[data-branch="dentistry"] .dental-planner-icon {
     0 6px 15px rgba(0,100,95,0.10);
 }
 
+
+/* 🩺 MEDICINE PLANNER ICON */
+
+body[data-branch="medicine"] .planner-branch-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #e6f5fa
+    );
+
+  box-shadow:
+    0 6px 15px rgba(20,90,115,0.10);
+
+  position: relative;
+}
+
+body[data-branch="medicine"] .planner-branch-icon::before {
+  content: "🩺";
+
+  font-size: 31px;
+  line-height: 1;
+
+  filter:
+    drop-shadow(0 2px 4px rgba(20,90,115,0.14));
+
+  transform: rotate(-8deg);
+}
+
+  
 body[data-branch="dentistry"] .dental-planner-title {
   display: flex;
   flex-direction: column;
