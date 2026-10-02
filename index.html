@@ -169,24 +169,42 @@ body[data-branch="dentistry"] header {
   overflow: hidden;
 }
 
-body[data-branch="dentistry"] .hero-tooth {
+/* 🩺 MEDICINE HERO STETHOSCOPE */
+
+body[data-branch="medicine"] .hero-decoration {
   position: absolute;
-  left: -12px;
-  bottom: -28px;
+
+  left: -18px;
+  bottom: -30px;
+
+  width: 115px;
+  height: 145px;
+
+  z-index: 1;
+  pointer-events: none;
+
+  transform: rotate(-14deg);
+}
+
+/* جسم السماعة */
+body[data-branch="medicine"] .hero-decoration::before {
+  content: "🩺";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
 
   font-size: 105px;
   line-height: 1;
 
-  transform: rotate(-14deg);
-
   filter:
-    drop-shadow(0 7px 10px rgba(0, 70, 65, 0.18));
+    drop-shadow(0 7px 10px rgba(0, 60, 80, 0.18));
 
   opacity: 0.96;
-
-  z-index: 1;
-  pointer-events: none;
 }
+
+    
 
     /* 🦷 Small Dental Decorations */
 body[data-branch="dentistry"] .dental-edge-decor {
@@ -200,50 +218,55 @@ body[data-branch="dentistry"] .dental-edge-decor {
 }
 
 body[data-branch="dentistry"] .mini-tooth {
+/* =========================================================
+   🩺 MEDICINE EDGE DECORATIONS
+   ========================================================= */
+
+body[data-branch="medicine"] .branch-edge-decor {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+/* زخارف طبية خفيفة على الأطراف */
+body[data-branch="medicine"] .branch-edge-decor::before {
+  content: "⚕";
+
   position: absolute;
 
-  font-size: 30px;
-  line-height: 1;
+  top: 125px;
+  right: 14px;
 
-  opacity: 0.16;
-  filter:
-    drop-shadow(0 2px 4px rgba(0, 90, 85, 0.12));
-}
+  font-size: 48px;
 
-/* أعلى اليمين */
-body[data-branch="dentistry"] .mini-tooth-1 {
-  top: 115px;
-  right: 18px;
-  transform: rotate(18deg);
-}
+  color: #1976a3;
 
-/* يمين الصفحة */
-body[data-branch="dentistry"] .mini-tooth-2 {
-  top: 42%;
-  right: 10px;
-  transform: rotate(-14deg);
-}
+  opacity: 0.08;
 
-/* أسفل اليمين */
-body[data-branch="dentistry"] .mini-tooth-3 {
-  bottom: 90px;
-  right: 24px;
-  transform: rotate(22deg);
-}
-
-/* أسفل اليسار */
-body[data-branch="dentistry"] .mini-tooth-4 {
-  bottom: 35px;
-  left: 18px;
-  transform: rotate(-20deg);
-}
-
-/* أعلى اليسار */
-body[data-branch="dentistry"] .mini-tooth-5 {
-  top: 180px;
-  left: 12px;
   transform: rotate(12deg);
-  }
+}
+
+/* علامة طبية ثانية */
+body[data-branch="medicine"] .branch-edge-decor::after {
+  content: "✚";
+
+  position: absolute;
+
+  bottom: 90px;
+  left: 18px;
+
+  font-size: 42px;
+
+  color: #1976a3;
+
+  opacity: 0.07;
+
+  transform: rotate(-10deg);
+}
 
 
     
@@ -2280,21 +2303,15 @@ body[data-branch="dentistry"]::after {
     <header>
   <div class="container">
 
-    <div class="hero-tooth" aria-hidden="true">🦷</div>
-
+    <div class="hero-decoration" aria-hidden="true"></div>
+    
     <h2>دليل طالب الحواش</h2>
     <p>كل ما يحتاجه الطالب بمكان واحد</p>
 
   </div>
     </header>
 
-  <div class="dental-edge-decor" aria-hidden="true">
-  <span class="mini-tooth mini-tooth-1">🦷</span>
-  <span class="mini-tooth mini-tooth-2">🦷</span>
-  <span class="mini-tooth mini-tooth-3">🦷</span>
-  <span class="mini-tooth mini-tooth-4">🦷</span>
-  <span class="mini-tooth mini-tooth-5">🦷</span>
-  </div>
+  <div class="branch-edge-decor" aria-hidden="true"></div>
   
   <div id="studentBranchName" class="student-branch-badge">
   <span class="branch-label">الفرع الدراسي</span>
