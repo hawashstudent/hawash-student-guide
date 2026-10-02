@@ -2435,6 +2435,50 @@ body[data-branch="engineering"] .planner-branch-icon::after {
   z-index: 2;
 }
 
+   /* =========================================================
+    ENGINEERING — CORNER ICONS
+    ========================================================= */
+
+body[data-branch="engineering"] header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 💻 المعلوماتية — العلوية اليسرى */
+body[data-branch="engineering"] header::before {
+  content: "💻";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 38px;
+  line-height: 1;
+  opacity: 0.16;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 3px 6px rgba(40,60,80,0.15));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 🏗️ المدنية — العلوية اليمنى */
+body[data-branch="engineering"] header::after {
+  content: "🏗️";
+  position: absolute;
+  top: 14px;
+  right: 12px;
+  font-size: 38px;
+  line-height: 1;
+  opacity: 0.16;
+  transform: rotate(8deg);
+  filter: drop-shadow(0 3px 6px rgba(40,60,80,0.15));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* نخلي محتوى الهيدر فوق الأيقونات */
+body[data-branch="engineering"] header > * {
+  position: relative;
+  z-index: 1;
+                                     }
 
     
 
