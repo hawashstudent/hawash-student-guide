@@ -357,6 +357,53 @@ header p {
       gap: 12px;
     }
 
+
+    .home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.home-grid .planner-home-card {
+  grid-column: 1 / -1;
+  min-height: 145px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #eefaf8
+  );
+  border: 1px solid rgba(0,168,152,0.18);
+  box-shadow:
+    0 8px 22px rgba(0,90,85,0.09),
+    inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+.home-grid .planner-home-card .icon {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.home-grid .planner-home-card h3 {
+  font-size: 21px;
+  margin: 0;
+  color: #006f66;
+  font-weight: 900;
+}
+
+.home-grid .planner-home-card span {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #718683;
+}
+
+    
+
   /* =========================================================
    🦷 DENTISTRY PLANNER — PREMIUM DENTAL BLUEPRINT
    ========================================================= */
@@ -3098,42 +3145,46 @@ body[data-branch="cosmetology"] .faculty-dean {
 
     <main class="container">
 
+      
       <!-- الرئيسية -->
-      <div id="homePage" class="page active">
+<div id="homePage" class="page active">
 
-        <div class="grid">
+  <div class="grid home-grid">
 
-          <div class="menu-card" onclick="showPage('mapPage')">
-            <div class="icon">🗺️</div>
-            <h3>الخريطة</h3>
-          </div>
+    <!-- مخططي الدراسي -->
+    <div class="menu-card planner-home-card" onclick="showPage('plannerPage')">
+      <div class="icon">📋</div>
+      <h3>مخططي الدراسي</h3>
+      <span>خطتك الدراسية وتنظيم أيامك</span>
+    </div>
 
+    <!-- الخريطة -->
+    <div class="menu-card" onclick="showPage('mapPage')">
+      <div class="icon">🗺️</div>
+      <h3>الخريطة</h3>
+    </div>
 
-          <div class="menu-card" onclick="showPage('facultiesPage')">
-            <div class="icon">🏫</div>
-            <h3>الكليات والأقسام</h3>
-          </div>
-          
-          
+    <!-- الكليات والأقسام -->
+    <div class="menu-card" onclick="showPage('facultiesPage')">
+      <div class="icon">🏫</div>
+      <h3>الكليات والأقسام</h3>
+    </div>
 
-          <div class="menu-card" onclick="showPage('calendarPage')">
-            <div class="icon">📅</div>
-            <h3>التقويم الجامعي</h3>
-          </div>
+    <!-- التقويم الجامعي -->
+    <div class="menu-card" onclick="showPage('calendarPage')">
+      <div class="icon">📅</div>
+      <h3>التقويم الجامعي</h3>
+    </div>
 
-          <div class="menu-card" onclick="showPage('plannerPage')">
-  <div class="icon">📋</div>
-  <h3>مخططي الدراسي</h3>
+    <!-- دليل الطالب -->
+    <div class="menu-card" onclick="showPage('guidePage')">
+      <div class="icon">ℹ️</div>
+      <h3>دليل الطالب</h3>
+    </div>
+
+  </div>
+
 </div>
-
-<div class="menu-card" onclick="showPage('guidePage')">
-  <div class="icon">ℹ️</div>
-  <h3>دليل الطالب</h3>
-</div>
-
-        </div>
-
-      </div>
 
 
       <!-- الخريطة -->
