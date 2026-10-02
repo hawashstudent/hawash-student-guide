@@ -2815,9 +2815,29 @@ async function checkStudentBranch() {
 
   if (!user) return;
 
-  const branch = user.user_metadata?.branch;
-  currentStudentBranch = branch;
+  const realBranch = user.user_metadata?.branch;
 
+const previewBranch =
+  new URLSearchParams(window.location.search).get("previewBranch");
+
+const allowedPreviewBranches = [
+  "dentistry",
+  "medicine",
+  "pharmacy",
+  "nursing",
+  "engineering",
+  "law",
+  "business",
+  "cosmetology"
+];
+
+const branch =
+  allowedPreviewBranches.includes(previewBranch)
+    ? previewBranch
+    : realBranch;
+
+currentStudentBranch = branch;
+  
   const branchNameElement =
   document.getElementById("studentBranchName");
 
