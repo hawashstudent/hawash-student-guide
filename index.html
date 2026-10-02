@@ -2848,6 +2848,66 @@ if (branchNameElement && branchInfo[branch]) {
     </strong>
   `;
 }
+
+/* عنوان المخطط حسب الفرع */
+const plannerTitle =
+  document.querySelector(".dental-planner-title span");
+
+const plannerEnglishTitle =
+  document.querySelector(".dental-planner-title small");
+
+if (plannerTitle && plannerEnglishTitle) {
+
+  const plannerTitles = {
+    dentistry: {
+      ar: "مخطط طالب الأسنان",
+      en: "DENTAL STUDENT PLANNER"
+    },
+
+    medicine: {
+      ar: "مخطط طالب الطب",
+      en: "MEDICAL STUDENT PLANNER"
+    },
+
+    pharmacy: {
+      ar: "مخطط طالب الصيدلة",
+      en: "PHARMACY STUDENT PLANNER"
+    },
+
+    nursing: {
+      ar: "مخطط طالب التمريض",
+      en: "NURSING STUDENT PLANNER"
+    },
+
+    engineering: {
+      ar: "مخطط طالب الهندسات",
+      en: "ENGINEERING STUDENT PLANNER"
+    },
+
+    law: {
+      ar: "مخطط طالب الحقوق",
+      en: "LAW STUDENT PLANNER"
+    },
+
+    business: {
+      ar: "مخطط طالب إدارة الأعمال",
+      en: "BUSINESS STUDENT PLANNER"
+    },
+
+    cosmetology: {
+      ar: "مخطط طالب التجميل",
+      en: "COSMETOLOGY STUDENT PLANNER"
+    }
+  };
+
+  if (plannerTitles[branch]) {
+    plannerTitle.textContent =
+      plannerTitles[branch].ar;
+
+    plannerEnglishTitle.textContent =
+      plannerTitles[branch].en;
+  }
+  }
   
   
   if (!branch) {
