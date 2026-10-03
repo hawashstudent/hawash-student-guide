@@ -4655,6 +4655,17 @@ places.forEach(place => {
   loadData();
 }
 
+async function logoutStudent() {
+  const { error } = await supabaseClient.auth.signOut();
+
+  if (error) {
+    console.error("Logout error:", error);
+    return;
+  }
+
+  location.reload();
+}
+
 restoreSession();
 
 </script>
