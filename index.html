@@ -3593,7 +3593,8 @@ if (authError) {
 alert(
   "RPC data: " + data +
   "\nRPC error: " +
-  (verifyError ? verifyError.message : "لا يوجد")
+  (verifyError ? verifyError.message : "لا يوجد") +
+  "\nDevice ID: " + deviceId
 );
 
     if (verifyError || data !== true) {
