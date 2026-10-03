@@ -3590,12 +3590,7 @@ if (authError) {
         { input_code: code, input_device_id: deviceId }
       );
 
-alert(
-  "RPC data: " + data +
-  "\nRPC error: " +
-  (verifyError ? verifyError.message : "لا يوجد") +
-  "\nDevice ID: " + deviceId
-);
+// RPC debug alert removed
 
     if (verifyError || data !== true) {
       error.textContent = "رمز الدخول غير صحيح أو غير فعال.";
@@ -3640,7 +3635,6 @@ async function checkStudentBranch() {
 
   if (!user) return;
 
-alert("User ID: " + user.id);
   
   const realBranch = user.user_metadata?.branch;
 
@@ -4657,5 +4651,6 @@ places.forEach(place => {
   loadData();
 }
 
-// restoreSession();
+restoreSession();
+  
 </script>
