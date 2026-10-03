@@ -3184,13 +3184,6 @@ body[data-branch="cosmetology"] .faculty-dean {
 
     </div>
 
-  <button
-    type="button"
-    class="logout"
-    onclick="logoutStudent()"
-  >
-    تسجيل الخروج
-  </button>
 
 </div>
 
@@ -4653,17 +4646,6 @@ places.forEach(place => {
   await checkStudentBranch();
 
   loadData();
-}
-
-async function logoutStudent() {
-  const { error } = await supabaseClient.auth.signOut();
-
-  if (error) {
-    console.error("Logout error:", error);
-    return;
-  }
-
-  location.reload();
 }
 
 restoreSession();
