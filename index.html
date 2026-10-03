@@ -3633,6 +3633,8 @@ async function checkStudentBranch() {
 
   if (!user) return;
 
+alert("User ID: " + user.id);
+  
   const realBranch = user.user_metadata?.branch;
 
 const previewBranch =
