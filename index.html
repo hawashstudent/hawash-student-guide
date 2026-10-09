@@ -4639,15 +4639,23 @@ places.forEach(place => {
 
 
   async function restoreSession() {
-
   const {
     data: { session }
   } = await supabaseClient.auth.getSession();
 
   if (!session) return;
 
-  await checkStudentBranch();
+  const { data: verified, error } =
+    await supabaseClient.rpc("is_verified_student");
 
+  if (error || verified !== true) {
+    document.getElementById("loginScreen").style.display = "flex";
+    document.getElementById("branchScreen").style.display = "none";
+    document.getElementById("app").style.display = "none";
+    return;
+  }
+
+  await checkStudentBranch();
   loadData();
 }
 
