@@ -4016,34 +4016,24 @@ const deanNames = {
   const weekCompleted =
     localStorage.getItem("hawash_planner_week_completed") === "true";
 
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date();
+  const todayString =
+    today.getFullYear() + "-" +
+    String(today.getMonth() + 1).padStart(2, "0") + "-" +
+    String(today.getDate()).padStart(2, "0");
 
   if (!weekStart) {
-    weekStart = today;
+    weekStart = todayString;
 
-    localStorage.setItem(
-      "hawash_planner_week_start",
-      weekStart
-    );
-
-    localStorage.setItem(
-      "hawash_planner_week_completed",
-      "false"
-    );
+    localStorage.setItem("hawash_planner_week_start", weekStart);
+    localStorage.setItem("hawash_planner_week_completed", "false");
   }
 
-  if (weekCompleted && today !== weekStart) {
-    weekStart = today;
+  if (weekCompleted && todayString !== weekStart) {
+    weekStart = todayString;
 
-    localStorage.setItem(
-      "hawash_planner_week_start",
-      weekStart
-    );
-
-    localStorage.setItem(
-      "hawash_planner_week_completed",
-      "false"
-    );
+    localStorage.setItem("hawash_planner_week_start", weekStart);
+    localStorage.setItem("hawash_planner_week_completed", "false");
   }
 
   return weekStart;
@@ -4058,10 +4048,11 @@ const deanNames = {
   start.setHours(0, 0, 0, 0);
   today.setHours(0, 0, 0, 0);
 
-  const difference =
-    Math.floor((today - start) / 86400000);
+  const difference = Math.floor(
+    (today.getTime() - start.getTime()) / 86400000
+  );
 
-  return difference + 1;
+  return Math.max(1, Math.min(7, difference + 1));
   }
 
   
@@ -4293,6 +4284,27 @@ localStorage.setItem(
   "hawash_planner_week_completed",
   "true"
 );
+
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+
+const nextWeekStart =
+  tomorrow.getFullYear() + "-" +
+  String(tomorrow.getMonth() + 1).padStart(2, "0") + "-" +
+  String(tomorrow.getDate()).padStart(2, "0");
+
+localStorage.setItem(
+  "hawash_planner_week_start",
+  nextWeekStart
+);
+
+localStorage.setItem(
+  "hawash_planner_week_completed",
+  "false"
+);
+
+updatePlannerProgress();
+updatePlannerWeekSection();
 }
   
   async function loadPlannerWeek() {
