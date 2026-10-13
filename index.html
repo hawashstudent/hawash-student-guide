@@ -4555,17 +4555,7 @@ const image = L.imageOverlay(
 ).addTo(map);
 
 map.setMinZoom(17);
-    map.on("click", function (e) {
-  const lat = e.latlng.lat.toFixed(6);
-  const lng = e.latlng.lng.toFixed(6);
-
-  L.popup()
-    .setLatLng(e.latlng)
-    .setContent(
-      `خط العرض: ${lat}<br>خط الطول: ${lng}<br><button onclick="navigator.clipboard.writeText('${lat}, ${lng}')">نسخ الإحداثيات</button>`
-    )
-    .openOn(map);
-});
+    
 
 function limitMap() {
   map.invalidateSize();
@@ -4634,7 +4624,7 @@ const places = [
   { name: "عيادات الأسنان📍", lat: 34.782114, lng: 36.326819 },
   { name: "كلية التجميل📍", lat: 34.780762, lng: 36.326292 },
   { name: "كلية الطب البشري و التمريض📍", lat: 34.780371, lng: 36.330920 },
-  { name: "كلية الصيدلة📍", lat: 34.779707, lng: 36.331744 },
+  { name: "كلية الصيدلة📍", lat: 34.780213, lng: 36.326850 },
   { name: "مشفى جامعة الحواش📍", lat: 34.781066, lng: 36.332823 },
   { name: "مطعم شلهوب📍", lat: 34.781485, lng: 36.330855 },
   { name: "Cafe Brother📍", lat: 34.780891, lng: 36.331847 },
