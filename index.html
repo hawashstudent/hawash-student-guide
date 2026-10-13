@@ -4555,6 +4555,17 @@ const image = L.imageOverlay(
 ).addTo(map);
 
 map.setMinZoom(17);
+    map.on("click", function (e) {
+  const lat = e.latlng.lat.toFixed(6);
+  const lng = e.latlng.lng.toFixed(6);
+
+  L.popup()
+    .setLatLng(e.latlng)
+    .setContent(
+      `خط العرض: ${lat}<br>خط الطول: ${lng}<br><button onclick="navigator.clipboard.writeText('${lat}, ${lng}')">نسخ الإحداثيات</button>`
+    )
+    .openOn(map);
+});
 
 function limitMap() {
   map.invalidateSize();
